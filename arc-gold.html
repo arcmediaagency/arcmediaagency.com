@@ -59,31 +59,32 @@
     font-family: 'Bebas Neue', sans-serif;
     font-size: 32vw; color: rgba(201,168,76,0.03);
     letter-spacing: -0.02em; white-space: nowrap;
-    pointer-events: none; user-select: none; z-index: 0;
+    pointer-events: none; user-select: none; z-index: -1;
   }
-  .hero-content { position: relative; z-index: 2; max-width: 900px; }
+  .hero-content { position: relative; z-index: 10; max-width: 900px; isolation: isolate; }
+  .hero-content, .hero-content * { color: #ffffff !important; }
   .hero-tag {
     display: inline-flex; align-items: center; gap: 12px;
     font-size: 10px; letter-spacing: 0.45em; text-transform: uppercase;
-    color: #ffffff; margin-bottom: 40px;
+    color: #ffffff !important; margin-bottom: 40px;
   }
   .hero-tag::before { content: ''; display: block; width: 32px; height: 1px; background: #ffffff; }
   .hero-title {
     font-size: clamp(52px, 10vw, 108px);
     line-height: 1; font-weight: 700; letter-spacing: -0.025em;
-    margin-bottom: 0; color: #ffffff;
+    margin-bottom: 0; color: #ffffff !important;
   }
-  .hero-title .line { display: block; color: #ffffff; }
+  .hero-title .line { display: block; color: #ffffff !important; }
   .hero-title .serif {
     font-family: 'Playfair Display', serif;
-    font-style: italic; font-weight: 400; color: #ffffff;
+    font-style: italic; font-weight: 400; color: #ffffff !important;
   }
   .hero-divider { width: 64px; height: 1px; background: rgba(255,255,255,0.15); margin: 40px 0; }
   .hero-body {
-    font-size: 18px; font-weight: 400; color: rgba(255,255,255,0.85);
+    font-size: 18px; font-weight: 400; color: rgba(255,255,255,0.85) !important;
     max-width: 520px; line-height: 1.85;
   }
-  .hero-body strong { color: #ffffff; font-weight: 600; }
+  .hero-body strong { color: #ffffff !important; font-weight: 600; }
   .hero-actions { display: flex; gap: 16px; margin-top: 48px; align-items: center; }
   .btn-primary { padding: 15px 40px; background: var(--gold); color: #0e0404; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 700; cursor: pointer; border: none; }
   .btn-ghost { font-size: 11px; letter-spacing: 0.1em; color: var(--muted); text-decoration: underline; text-underline-offset: 4px; cursor: pointer; background: none; border: none; }
