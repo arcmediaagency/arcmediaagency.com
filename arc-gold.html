@@ -259,6 +259,66 @@
   .foot-link.apply-link { color: var(--gold); cursor: pointer; background: none; border: none; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 400; letter-spacing: 0.04em; padding: 0; }
   .foot-link.apply-link:hover { color: #fff; }
   .foot-copy { font-size: 11px; color: rgba(255,255,255,0.15); }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    /* NAV */
+    nav { padding: 14px 20px; }
+    .nav-cta { padding: 9px 16px; font-size: 9px; }
+
+    /* TICKER */
+    .ticker-wrap { top: 48px; }
+
+    /* HERO */
+    .hero { padding: 130px 20px 70px; }
+    .hero-body { font-size: 15px; }
+    .hero-actions { flex-direction: column; align-items: flex-start; gap: 12px; }
+
+    /* RESULTS */
+    .results-section { padding: 60px 20px; }
+    .results-inner { padding: 0; }
+    .results-grid-4 { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .results-group-label { font-size: 9px; }
+
+    /* TRACK RECORD */
+    .trackrecord-section { padding: 60px 20px; }
+    .tr-stats { grid-template-columns: 1fr 1fr; gap: 2px; }
+    .tr-num { font-size: 40px; }
+
+    /* BRANDS */
+    .brands-section { padding: 60px 0; }
+    .brands-inner { padding: 0 20px; }
+
+    /* SERVICES OVERVIEW */
+    .services-overview { padding: 60px 20px; }
+    .sov-cards { grid-template-columns: 1fr; gap: 2px; }
+
+    /* SYSTEM */
+    .system-section { padding: 60px 20px; }
+    .system-inner { grid-template-columns: 1fr; gap: 40px; }
+    .system-steps { grid-template-columns: 1fr; }
+
+    /* DIFFERENT */
+    .different-section { padding: 60px 20px; }
+    .diff-grid { grid-template-columns: 1fr 1fr; gap: 2px; }
+
+    /* NOT FOR */
+    .notfor-section { padding: 60px 20px; }
+    .notfor-inner { grid-template-columns: 1fr; gap: 40px; }
+
+    /* CTA */
+    .cta-section { padding: 80px 20px; }
+
+    /* FOOTER */
+    footer { padding: 24px 20px; flex-wrap: wrap; gap: 12px; }
+    .foot-links { align-items: flex-start; }
+    .foot-links-row { flex-direction: column; gap: 8px; }
+    .foot-copy { width: 100%; text-align: center; }
+
+    /* MODAL */
+    .modal-box { padding: 32px 24px; }
+    .form-row { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
