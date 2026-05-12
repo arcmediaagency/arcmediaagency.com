@@ -8,11 +8,11 @@
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   :root {
-    --gold: #E81C2E;
-    --gold-dim: rgba(232,28,46,0.12);
+    --gold: #C04A1A;
+    --gold-dim: rgba(192,74,26,0.12);
     --white: #ffffff;
     --muted: rgba(255,255,255,0.38);
-    --border: rgba(232,28,46,0.15);
+    --border: rgba(192,74,26,0.15);
     --card: rgba(255,255,255,0.025);
     --bg: #000000;
   }
@@ -37,7 +37,7 @@
   .nav-links { display: flex; gap: 40px; }
   .nav-links a { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
   .nav-links a:hover { color: var(--white); }
-  .nav-cta { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #ffffff; background: #E81C2E; padding: 11px 28px; cursor: pointer; font-weight: 700; border: none; font-family: 'Inter', sans-serif; box-shadow: 0 0 14px rgba(232,28,46,0.5); }
+  .nav-cta { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #ffffff; background: #C04A1A; padding: 11px 28px; cursor: pointer; font-weight: 700; border: none; font-family: 'Inter', sans-serif; box-shadow: 0 0 14px rgba(192,74,26,0.5); }
 
   /* TICKER */
   .ticker-wrap { position: fixed; top: 52px; left: 0; right: 0; z-index: 99; background: var(--gold); overflow: hidden; padding: 7px 0; }
@@ -57,7 +57,7 @@
     position: absolute; top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 32vw; color: rgba(232,28,46,0.04);
+    font-size: 32vw; color: rgba(192,74,26,0.04);
     letter-spacing: -0.02em; white-space: nowrap;
     pointer-events: none; user-select: none; z-index: 0;
   }
@@ -65,30 +65,30 @@
   .hero-tag {
     display: inline-flex; align-items: center; gap: 12px;
     font-size: 10px; letter-spacing: 0.45em; text-transform: uppercase;
-    color: #E81C2E; margin-bottom: 40px;
-    text-shadow: 0 0 12px rgba(232,28,46,0.7);
+    color: #C04A1A; margin-bottom: 40px;
+    text-shadow: 0 0 12px rgba(192,74,26,0.7);
   }
-  .hero-tag::before { content: ''; display: block; width: 32px; height: 1px; background: #E81C2E; box-shadow: 0 0 8px rgba(232,28,46,0.8); }
+  .hero-tag::before { content: ''; display: block; width: 32px; height: 1px; background: #C04A1A; box-shadow: 0 0 8px rgba(192,74,26,0.8); }
   .hero-title {
     font-size: clamp(52px, 10vw, 108px);
     line-height: 1; font-weight: 700; letter-spacing: -0.025em;
-    margin-bottom: 0; color: #E81C2E;
-    text-shadow: 0 0 20px rgba(232,28,46,1), 0 0 40px rgba(232,28,46,0.7), 0 0 80px rgba(232,28,46,0.4);
+    margin-bottom: 0; color: #C04A1A;
+    text-shadow: 0 0 20px rgba(192,74,26,1), 0 0 40px rgba(192,74,26,0.7), 0 0 80px rgba(192,74,26,0.4);
   }
-  .hero-title .line { display: block; color: #E81C2E; }
+  .hero-title .line { display: block; color: #C04A1A; }
   .hero-title .serif {
     font-family: 'Playfair Display', serif;
-    font-style: italic; font-weight: 400; color: #E81C2E;
+    font-style: italic; font-weight: 400; color: #C04A1A;
   }
-  .hero-divider { width: 64px; height: 1px; background: #E81C2E; margin: 40px 0; box-shadow: 0 0 10px rgba(232,28,46,0.8); }
+  .hero-divider { width: 64px; height: 1px; background: #C04A1A; margin: 40px 0; box-shadow: 0 0 10px rgba(192,74,26,0.8); }
   .hero-body {
     font-size: 18px; font-weight: 400; color: rgba(255,255,255,0.75);
     max-width: 520px; line-height: 1.85;
   }
   .hero-body strong { color: #ffffff; font-weight: 600; }
   .hero-actions { display: flex; gap: 16px; margin-top: 48px; align-items: center; }
-  .btn-primary { padding: 15px 40px; background: #E81C2E; color: #ffffff; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 700; cursor: pointer; border: none; box-shadow: 0 0 20px rgba(232,28,46,0.6), 0 0 40px rgba(232,28,46,0.3); }
-  .btn-primary:hover { box-shadow: 0 0 30px rgba(232,28,46,0.9), 0 0 60px rgba(232,28,46,0.5); }
+  .btn-primary { padding: 15px 40px; background: #C04A1A; color: #ffffff; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 700; cursor: pointer; border: none; box-shadow: 0 0 20px rgba(192,74,26,0.6), 0 0 40px rgba(192,74,26,0.3); }
+  .btn-primary:hover { box-shadow: 0 0 30px rgba(192,74,26,0.9), 0 0 60px rgba(192,74,26,0.5); }
   .btn-ghost { font-size: 11px; letter-spacing: 0.1em; color: var(--muted); text-decoration: underline; text-underline-offset: 4px; cursor: pointer; background: none; border: none; }
 
   /* PROOF STRIP */
@@ -359,18 +359,18 @@
 <div class="hero" style="background:#000000; min-height:100vh; padding:180px 56px 100px; position:relative; display:flex; flex-direction:column; justify-content:center; overflow:hidden;">
   <div class="hero-bg-text">ARC</div>
   <div class="hero-content" style="position:relative; z-index:10; max-width:900px;">
-    <div class="hero-tag" style="display:inline-flex; align-items:center; gap:12px; font-size:10px; letter-spacing:0.45em; text-transform:uppercase; color:#E81C2E; margin-bottom:40px; text-shadow:0 0 12px rgba(232,28,46,0.8);">Ecom Agency · MENA &amp; Global</div>
-    <h1 class="hero-title" style="font-size:clamp(52px,10vw,108px); line-height:1; font-weight:700; letter-spacing:-0.025em; color:#E81C2E; text-shadow:0 0 20px rgba(232,28,46,1), 0 0 50px rgba(232,28,46,0.7), 0 0 90px rgba(232,28,46,0.4); margin-bottom:0;">
-      <span class="line" style="display:block; color:#E81C2E;">We build it.</span>
-      <span class="line" style="display:block; color:#E81C2E;">We run it.</span>
-      <span class="line serif" style="display:block; color:#E81C2E; font-style:italic; font-weight:400;">We report it. Weekly.</span>
+    <div class="hero-tag" style="display:inline-flex; align-items:center; gap:12px; font-size:10px; letter-spacing:0.45em; text-transform:uppercase; color:#C04A1A; margin-bottom:40px; text-shadow:0 0 12px rgba(192,74,26,0.8);">Ecom Agency · MENA &amp; Global</div>
+    <h1 class="hero-title" style="font-size:clamp(52px,10vw,108px); line-height:1; font-weight:700; letter-spacing:-0.025em; color:#C04A1A; text-shadow:0 0 20px rgba(192,74,26,1), 0 0 50px rgba(192,74,26,0.7), 0 0 90px rgba(192,74,26,0.4); margin-bottom:0;">
+      <span class="line" style="display:block; color:#C04A1A;">We build it.</span>
+      <span class="line" style="display:block; color:#C04A1A;">We run it.</span>
+      <span class="line serif" style="display:block; color:#C04A1A; font-style:italic; font-weight:400;">We report it. Weekly.</span>
     </h1>
-    <div class="hero-divider" style="width:64px; height:1px; background:#E81C2E; margin:40px 0; box-shadow:0 0 10px rgba(232,28,46,0.9);"></div>
+    <div class="hero-divider" style="width:64px; height:1px; background:#C04A1A; margin:40px 0; box-shadow:0 0 10px rgba(192,74,26,0.9);"></div>
     <div class="hero-body" style="font-size:18px; font-weight:400; color:rgba(255,255,255,0.8); max-width:520px; line-height:1.85;">
       Most agencies run your ads <strong style="color:#ffffff; font-weight:600;">or</strong> build your store. We do both — then send you a full AI performance report every week so you always know exactly where your money is going.
     </div>
     <div class="hero-actions" style="display:flex; gap:16px; margin-top:48px; align-items:center;">
-      <button class="btn-primary" style="padding:15px 40px; background:#E81C2E; color:#ffffff; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; font-weight:700; cursor:pointer; border:none; box-shadow:0 0 20px rgba(232,28,46,0.7), 0 0 40px rgba(232,28,46,0.4);">Apply Now →</button>
+      <button class="btn-primary" style="padding:15px 40px; background:#C04A1A; color:#ffffff; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; font-weight:700; cursor:pointer; border:none; box-shadow:0 0 20px rgba(192,74,26,0.7), 0 0 40px rgba(192,74,26,0.4);">Apply Now →</button>
       <button class="btn-ghost">See our results ↓</button>
     </div>
   </div>
