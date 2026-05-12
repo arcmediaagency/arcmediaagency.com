@@ -1296,14 +1296,16 @@
     }).catch(()=>{});
 
     // 2️⃣ ntfy push notification
-    fetch('https://ntfy.sh/arc-apply-7r4m', {
+    fetch('https://ntfy.sh', {
       method: 'POST',
-      body: `👤 ${name}\n🏢 ${business}\n📧 ${email}\n📞 ${phone}\n💰 Revenue: ${revenue}\n📊 Budget: ${budget}`,
-      headers: {
-        'Title': '🔥 New ARC Application!',
-        'Priority': 'urgent',
-        'Tags': 'bell,fire,rocket'
-      }
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        topic: 'arc-apply-7r4m',
+        title: '🔥 New ARC Application!',
+        message: `👤 ${name}\n🏢 ${business}\n📧 ${email}\n📞 ${phone}\n💰 ${revenue}\n📊 ${budget}`,
+        priority: 5,
+        tags: ['bell','fire','rocket']
+      })
     }).catch(()=>{});
 
     // show success
