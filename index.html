@@ -321,6 +321,103 @@
     .modal-box { padding: 32px 24px; }
     .form-row { grid-template-columns: 1fr; }
   }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-30px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes glowPulse {
+    0%,100% { text-shadow: 0 0 20px rgba(192,74,26,1), 0 0 40px rgba(192,74,26,0.7), 0 0 80px rgba(192,74,26,0.4); }
+    50%      { text-shadow: 0 0 35px rgba(192,74,26,1), 0 0 70px rgba(192,74,26,0.85), 0 0 120px rgba(192,74,26,0.5); }
+  }
+  @keyframes bgDrift {
+    0%,100% { transform: translate(-50%,-50%) scale(1) rotate(0deg); }
+    50%      { transform: translate(-50%,-50%) scale(1.04) rotate(1deg); }
+  }
+  @keyframes lineGrow {
+    from { width: 0; }
+    to   { width: 64px; }
+  }
+  @keyframes btnPulse {
+    0%,100% { box-shadow: 0 0 20px rgba(192,74,26,0.7), 0 0 40px rgba(192,74,26,0.4); }
+    50%      { box-shadow: 0 0 35px rgba(192,74,26,1), 0 0 65px rgba(192,74,26,0.6); }
+  }
+  @keyframes navSlide {
+    from { opacity:0; transform: translateY(-20px); }
+    to   { opacity:1; transform: translateY(0); }
+  }
+
+  /* HERO entrance */
+  nav { animation: navSlide 0.6s ease both; }
+  .hero-tag-wrap  { animation: fadeInLeft 0.7s ease 0.3s both; }
+  .hero-line-1    { animation: fadeInUp 0.8s ease 0.45s both; }
+  .hero-line-2    { animation: fadeInUp 0.8s ease 0.6s both; }
+  .hero-line-3    { animation: fadeInUp 0.8s ease 0.75s both; }
+  .hero-divider-el{ animation: lineGrow 0.7s ease 0.9s both; }
+  .hero-body-el   { animation: fadeInUp 0.8s ease 1s both; }
+  .hero-actions-el{ animation: fadeInUp 0.8s ease 1.15s both; }
+
+  /* Continuous glow + bg drift */
+  .hero-title-el  { animation: glowPulse 3.5s ease-in-out infinite; }
+  .hero-bg-text   { animation: bgDrift 12s ease-in-out infinite; }
+  .btn-primary    { animation: btnPulse 2.5s ease-in-out infinite; }
+
+  /* SCROLL REVEAL */
+  .reveal {
+    opacity: 0;
+    transform: translateY(48px);
+    transition: opacity 0.75s ease, transform 0.75s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-48px);
+    transition: opacity 0.75s ease, transform 0.75s ease;
+  }
+  .reveal-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .reveal-scale {
+    opacity: 0;
+    transform: scale(0.92);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .reveal-scale.visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* stagger children */
+  .stagger > * { opacity:0; transform:translateY(36px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .stagger.visible > *:nth-child(1) { opacity:1; transform:translateY(0); transition-delay:0s; }
+  .stagger.visible > *:nth-child(2) { opacity:1; transform:translateY(0); transition-delay:0.12s; }
+  .stagger.visible > *:nth-child(3) { opacity:1; transform:translateY(0); transition-delay:0.24s; }
+  .stagger.visible > *:nth-child(4) { opacity:1; transform:translateY(0); transition-delay:0.36s; }
+
+  /* CARD HOVER */
+  .sov-card, .tr-stat, .result-card, .diff-card, .rs-stat {
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .sov-card:hover, .tr-stat:hover, .result-card:hover, .diff-card:hover, .rs-stat:hover {
+    transform: translateY(-6px);
+    border-color: rgba(192,74,26,0.4);
+    box-shadow: 0 8px 40px rgba(192,74,26,0.15);
+  }
+
+  /* PARTICLES CANVAS */
+  #hero-particles {
+    position: absolute; inset: 0;
+    pointer-events: none; z-index: 1;
+  }
 </style>
 </head>
 <body>
@@ -336,20 +433,21 @@
 
 <!-- HERO -->
 <div class="hero" style="background:#000000; min-height:100vh; padding:180px 56px 100px; position:relative; display:flex; flex-direction:column; justify-content:center; overflow:hidden;">
+  <canvas id="hero-particles"></canvas>
   <div class="hero-bg-text">ARC</div>
   <div class="hero-content" style="position:relative; z-index:10; max-width:900px;">
-    <div class="hero-tag" style="display:inline-flex; align-items:center; gap:12px; font-size:10px; letter-spacing:0.45em; text-transform:uppercase; color:#C04A1A; margin-bottom:40px; text-shadow:0 0 12px rgba(192,74,26,0.8);">Ecom Agency · MENA &amp; Global</div>
-    <h1 class="hero-title" style="font-size:clamp(52px,10vw,108px); line-height:1; font-weight:700; letter-spacing:-0.025em; color:#C04A1A; text-shadow:0 0 20px rgba(192,74,26,1), 0 0 50px rgba(192,74,26,0.7), 0 0 90px rgba(192,74,26,0.4); margin-bottom:0;">
-      <span class="line" style="display:block; color:#C04A1A;">We build it.</span>
-      <span class="line" style="display:block; color:#C04A1A;">We run it.</span>
-      <span class="line serif" style="display:block; color:#C04A1A; font-style:italic; font-weight:400;">We report it. Weekly.</span>
+    <div class="hero-tag-wrap" style="display:inline-flex; align-items:center; gap:12px; font-size:10px; letter-spacing:0.45em; text-transform:uppercase; color:#C04A1A; margin-bottom:40px; text-shadow:0 0 12px rgba(192,74,26,0.8);">Ecom Agency · MENA &amp; Global</div>
+    <h1 class="hero-title-el" style="font-size:clamp(52px,10vw,108px); line-height:1; font-weight:700; letter-spacing:-0.025em; color:#C04A1A; margin-bottom:0;">
+      <span class="hero-line-1" style="display:block; color:#C04A1A;">We build it.</span>
+      <span class="hero-line-2" style="display:block; color:#C04A1A;">We run it.</span>
+      <span class="hero-line-3" style="display:block; color:#C04A1A; font-family:'Playfair Display',serif; font-style:italic; font-weight:400;">We report it. Weekly.</span>
     </h1>
-    <div class="hero-divider" style="width:64px; height:1px; background:#C04A1A; margin:40px 0; box-shadow:0 0 10px rgba(192,74,26,0.9);"></div>
-    <div class="hero-body" style="font-size:18px; font-weight:400; color:rgba(255,255,255,0.8); max-width:520px; line-height:1.85;">
+    <div class="hero-divider-el" style="height:1px; background:#C04A1A; margin:40px 0; box-shadow:0 0 10px rgba(192,74,26,0.9);"></div>
+    <div class="hero-body-el" style="font-size:18px; font-weight:400; color:rgba(255,255,255,0.8); max-width:520px; line-height:1.85;">
       Most agencies run your ads <strong style="color:#ffffff; font-weight:600;">or</strong> build your store. We do both — then send you a full AI performance report every week so you always know exactly where your money is going.
     </div>
-    <div class="hero-actions" style="display:flex; gap:16px; margin-top:48px; align-items:center;">
-      <button class="btn-primary" style="padding:15px 40px; background:#C04A1A; color:#ffffff; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; font-weight:700; cursor:pointer; border:none; box-shadow:0 0 20px rgba(192,74,26,0.7), 0 0 40px rgba(192,74,26,0.4);">Apply Now →</button>
+    <div class="hero-actions-el" style="display:flex; gap:16px; margin-top:48px; align-items:center;">
+      <button class="btn-primary" onclick="openModal()" style="padding:15px 40px; background:#C04A1A; color:#ffffff; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; font-weight:700; cursor:pointer; border:none;">Apply Now →</button>
       <button class="btn-ghost">See our results ↓</button>
     </div>
   </div>
@@ -450,10 +548,10 @@
 <!-- TRACK RECORD -->
 <div class="trackrecord-section">
   <div class="tr-inner">
-    <div class="tr-label">Our Track Record</div>
-    <div class="tr-title">Trusted by brands.<br><span class="serif">Proven by numbers.</span></div>
-    <div class="tr-sub">We've helped brands across Europe and the Middle East generate real revenue — with data, speed, and zero fluff.</div>
-    <div class="tr-stats">
+    <div class="tr-label reveal">Our Track Record</div>
+    <div class="tr-title reveal">Trusted by brands.<br><span class="serif">Proven by numbers.</span></div>
+    <div class="tr-sub reveal">We've helped brands across Europe and the Middle East generate real revenue — with data, speed, and zero fluff.</div>
+    <div class="tr-stats stagger">
       <div class="tr-stat">
         <div class="tr-num">$30M+</div>
         <div class="tr-desc">Revenue Generated</div>
@@ -1293,6 +1391,134 @@
   });
 
   buildCountryList();
+</script>
+
+<script>
+/* ── PARTICLES ── */
+(function(){
+  const canvas = document.getElementById('hero-particles');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [];
+
+  function resize(){
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function Particle(){
+    this.x = Math.random()*W;
+    this.y = Math.random()*H;
+    this.r = Math.random()*1.8+0.4;
+    this.vx = (Math.random()-0.5)*0.4;
+    this.vy = (Math.random()-0.5)*0.4;
+    this.alpha = Math.random()*0.5+0.1;
+    this.da = (Math.random()-0.5)*0.005;
+  }
+  Particle.prototype.update = function(){
+    this.x += this.vx; this.y += this.vy;
+    this.alpha += this.da;
+    if(this.alpha<=0.05||this.alpha>=0.65) this.da*=-1;
+    if(this.x<0) this.x=W; if(this.x>W) this.x=0;
+    if(this.y<0) this.y=H; if(this.y>H) this.y=0;
+  };
+
+  for(let i=0;i<90;i++) particles.push(new Particle());
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    particles.forEach(p=>{
+      p.update();
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(192,74,26,${p.alpha})`;
+      ctx.fill();
+    });
+    // draw faint lines between close particles
+    for(let i=0;i<particles.length;i++){
+      for(let j=i+1;j<particles.length;j++){
+        const dx=particles[i].x-particles[j].x, dy=particles[i].y-particles[j].y;
+        const dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist<120){
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x,particles[i].y);
+          ctx.lineTo(particles[j].x,particles[j].y);
+          ctx.strokeStyle=`rgba(192,74,26,${0.06*(1-dist/120)})`;
+          ctx.lineWidth=0.5;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ── SCROLL REVEAL ── */
+(function(){
+  const els = document.querySelectorAll('.reveal, .reveal-left, .reveal-scale, .stagger');
+  if(!els.length) return;
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:0.12});
+  els.forEach(el=>io.observe(el));
+})();
+
+/* ── COUNTER ANIMATION ── */
+(function(){
+  function parseVal(str){ return parseFloat(str.replace(/[^0-9.]/g,'')); }
+  function getSuffix(str){ return str.replace(/[0-9.,]/g,''); }
+  function animCount(el){
+    const raw = el.textContent.trim();
+    const target = parseVal(raw);
+    const suffix = getSuffix(raw);
+    if(!target) return;
+    const dur = 2000, start = performance.now();
+    function tick(now){
+      const p = Math.min((now-start)/dur,1);
+      const ease = 1-Math.pow(1-p,3);
+      const val = target*ease;
+      el.textContent = (target%1===0 ? Math.round(val) : val.toFixed(1)) + suffix;
+      if(p<1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  const numEls = document.querySelectorAll('.tr-num, .ps-num, .rs-stat-num');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ animCount(e.target); io.unobserve(e.target); }
+    });
+  },{threshold:0.5});
+  numEls.forEach(el=>io.observe(el));
+})();
+
+/* ── MOUSE PARALLAX on hero bg ── */
+(function(){
+  const bg = document.querySelector('.hero-bg-text');
+  if(!bg) return;
+  document.addEventListener('mousemove',e=>{
+    const x = (e.clientX/window.innerWidth - 0.5)*20;
+    const y = (e.clientY/window.innerHeight - 0.5)*10;
+    bg.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+  });
+})();
+
+/* ── NAV on scroll ── */
+(function(){
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll',()=>{
+    nav.style.borderBottomColor = window.scrollY>60
+      ? 'rgba(192,74,26,0.25)'
+      : 'rgba(192,74,26,0.15)';
+  });
+})();
 </script>
 
 </body>
