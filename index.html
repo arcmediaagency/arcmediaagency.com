@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ARC Agency</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   :root {
@@ -583,7 +585,7 @@
   <div class="nav-logo">
     <div class="nav-arc">ARC</div>
   </div>
-  <button class="nav-cta">Apply Now →</button>
+  <button class="nav-cta" onclick="Calendly.initPopupWidget({url:'https://calendly.com/arcmediaagency-info/strategy-call'});return false;">Book a Call →</button>
 </nav>
 
 
@@ -945,7 +947,7 @@
 <div class="cta-section">
   <div class="cta-title">Ready to<br><span class="serif">scale?</span></div>
   <div class="cta-sub">Book a free 30-minute strategy call.<br>No pitch. No pressure. Just clarity on what's possible.</div>
-  <button class="btn-primary">Apply Now →</button>
+  <button class="btn-primary" onclick="Calendly.initPopupWidget({url:'https://calendly.com/arcmediaagency-info/strategy-call'});return false;">Book a Strategy Call →</button>
   <div class="cta-note">Currently accepting new clients · Limited spots available</div>
 </div>
 
