@@ -148,6 +148,10 @@
   .sys-tag { font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; border: 1px solid var(--border); padding: 5px 14px; color: var(--muted); }
 
   /* ARC PILLARS */
+  .arc-pillars-grid {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 2px; margin-top: 64px;
+  }
   .arc-pillar {
     padding: 56px 40px 48px;
     border: 1px solid var(--border);
@@ -326,13 +330,12 @@
     nav { padding: 14px 20px; }
     .nav-cta { padding: 9px 16px; font-size: 9px; }
 
-    /* TICKER */
-    .ticker-wrap { top: 48px; }
-
     /* HERO */
-    .hero { padding: 130px 20px 70px; }
+    .hero { padding: 0 20px; min-height: 100svh; }
+    .hero-content { padding-top: 90px; padding-bottom: 60px; }
     .hero-body { font-size: 15px; }
     .hero-actions { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .hero-actions button { width: 100%; justify-content: center; }
 
     /* RESULTS */
     .results-section { padding: 60px 20px; }
@@ -353,14 +356,16 @@
     .services-overview { padding: 60px 20px; }
     .sov-cards { grid-template-columns: 1fr; gap: 2px; }
 
-    /* SYSTEM */
+    /* ARC PILLARS */
     .system-section { padding: 60px 20px; }
-    .system-inner { grid-template-columns: 1fr; gap: 40px; }
-    .system-steps { grid-template-columns: 1fr; }
+    .system-inner { padding: 0; }
+    .arc-pillars-grid { grid-template-columns: 1fr; gap: 2px; margin-top: 40px; }
+    .arc-pillar-letter { font-size: 64px; }
+    .arc-pillar { padding: 36px 24px 32px; }
 
     /* DIFFERENT */
     .different-section { padding: 60px 20px; }
-    .diff-grid { grid-template-columns: 1fr 1fr; gap: 2px; }
+    .diff-grid { grid-template-columns: 1fr; gap: 2px; }
 
     /* NOT FOR */
     .notfor-section { padding: 60px 20px; }
@@ -368,6 +373,7 @@
 
     /* CTA */
     .cta-section { padding: 80px 20px; }
+    .cta-title { font-size: clamp(40px, 12vw, 72px); }
 
     /* FOOTER */
     footer { padding: 48px 20px 0; }
@@ -376,9 +382,19 @@
     .foot-bottom { flex-direction: column; gap: 8px; text-align: center; padding: 20px 0; }
     .foot-desc { max-width: 100%; }
 
+    /* SEC TITLES */
+    .sec-title { font-size: clamp(28px, 8vw, 44px); }
+
     /* MODAL */
     .modal-box { padding: 32px 24px; }
     .form-row { grid-template-columns: 1fr; }
+
+    /* RESULTS STATS */
+    .results-stats { grid-template-columns: 1fr 1fr; }
+
+    /* PROOF STRIP */
+    .ps-inner { grid-template-columns: 1fr 1fr; }
+    .ps-item { border-right: none; border-bottom: 1px solid var(--border); padding: 32px 20px; }
   }
 
   /* ── ANIMATIONS ── */
@@ -802,7 +818,7 @@
     <div class="sec-label">What ARC Stands For</div>
     <div class="sec-title">Three pillars.<br><span class="serif">One system.</span></div>
 
-    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:64px;">
+    <div class="arc-pillars-grid">
 
       <!-- A -->
       <div class="arc-pillar">
