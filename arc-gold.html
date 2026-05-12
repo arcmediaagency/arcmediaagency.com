@@ -803,22 +803,23 @@
     <div class="modal-title">Tell us about<br><span class="serif">your brand.</span></div>
     <div class="modal-sub">We review every application personally. You'll hear back within 24 hours.</div>
 
-    <form class="modal-form" onsubmit="handleSubmit(event)">
+    <form class="modal-form" name="apply" data-netlify="true" onsubmit="handleSubmit(event)">
+      <input type="hidden" name="form-name" value="apply">
       <div class="form-row">
         <div class="form-group">
           <label class="form-label">Full Name</label>
-          <input class="form-input" type="text" placeholder="Your Name" required>
+          <input class="form-input" type="text" name="full-name" placeholder="Your Name" required>
         </div>
         <div class="form-group">
           <label class="form-label">Business Name</label>
-          <input class="form-input" type="text" placeholder="Your Brand" required>
+          <input class="form-input" type="text" name="business-name" placeholder="Your Brand" required>
         </div>
       </div>
 
       <div class="form-row">
         <div class="form-group">
           <label class="form-label">Email Address</label>
-          <input class="form-input" type="email" placeholder="you@yourbrand.com" required>
+          <input class="form-input" type="email" name="email" placeholder="you@yourbrand.com" required>
         </div>
         <div class="form-group">
           <label class="form-label">Phone / WhatsApp</label>
@@ -1034,7 +1035,7 @@
               <option value="+260">🇿🇲 +260</option>
               <option value="+263">🇿🇼 +263</option>
             </select>
-            <input class="form-input phone-num" id="phoneNum" type="tel" placeholder="1XX XXX XXXX" required>
+            <input class="form-input phone-num" id="phoneNum" name="phone" type="tel" placeholder="1XX XXX XXXX" required>
           </div>
         </div>
       </div>
@@ -1042,7 +1043,7 @@
       <div class="form-row">
         <div class="form-group">
           <label class="form-label">Monthly Revenue</label>
-          <select class="form-input form-select" required>
+          <select class="form-input form-select" name="monthly-revenue" required>
             <option value="" disabled selected>Select range</option>
             <optgroup label="— USD">
               <option>Under $5K / month</option>
@@ -1062,7 +1063,7 @@
         </div>
         <div class="form-group">
           <label class="form-label">Monthly Ad Budget</label>
-          <select class="form-input form-select" required>
+          <select class="form-input form-select" name="monthly-budget" required>
             <option value="" disabled selected>Select range</option>
             <optgroup label="— USD">
               <option>Under $1K / month</option>
@@ -1084,17 +1085,17 @@
       <div class="form-row">
         <div class="form-group">
           <label class="form-label">Website</label>
-          <input class="form-input" type="url" placeholder="https://yourbrand.com">
+          <input class="form-input" type="url" name="website" placeholder="https://yourbrand.com">
         </div>
         <div class="form-group">
           <label class="form-label">Instagram</label>
-          <input class="form-input" type="text" placeholder="@yourbrand">
+          <input class="form-input" type="text" name="instagram" placeholder="@yourbrand">
         </div>
       </div>
 
       <div class="form-group">
         <label class="form-label">Anything else you'd like us to know?</label>
-        <textarea class="form-input form-textarea" placeholder="Your current challenges, goals, or questions..."></textarea>
+        <textarea class="form-input form-textarea" name="message" placeholder="Your current challenges, goals, or questions..."></textarea>
       </div>
 
       <button class="form-submit" type="submit">Submit Application →</button>
@@ -1270,8 +1271,26 @@
   });
   function handleSubmit(e) {
     e.preventDefault();
-    document.querySelector('.modal-form').style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
+    const form = e.target;
+    const data = new FormData(form);
+    // add phone country code
+    const code = document.getElementById('ctCode');
+    const phoneInput = form.querySelector('input[name="phone"]');
+    if(code && phoneInput) {
+      data.set('phone', code.textContent + ' ' + phoneInput.value);
+    }
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(data).toString()
+    }).then(() => {
+      form.style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    }).catch(() => {
+      // still show success even if fetch fails (e.g. local dev)
+      form.style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    });
   }
   document.querySelectorAll('.nav-cta, .btn-primary').forEach(btn => {
     btn.addEventListener('click', openModal);
