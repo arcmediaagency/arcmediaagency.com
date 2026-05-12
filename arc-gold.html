@@ -150,51 +150,35 @@
   /* ARC PILLARS */
   .arc-pillars-grid {
     display: grid; grid-template-columns: repeat(3,1fr);
-    gap: 2px; margin-top: 64px;
+    gap: 1px; background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.06);
   }
   .arc-pillar {
-    padding: 56px 40px 48px;
-    border: 1px solid var(--border);
-    background: var(--card);
+    padding: 40px 36px 48px;
+    background: #000;
     display: flex; flex-direction: column;
-    transition: border-color 0.4s, background 0.4s;
-    position: relative; overflow: hidden;
+    transition: background 0.35s;
   }
-  .arc-pillar::before {
-    content: '';
-    position: absolute; top: 0; left: 0; right: 0; height: 2px;
-    background: transparent;
-    transition: background 0.4s;
+  .arc-pillar:hover { background: #0a0a0a; }
+  .arc-pillar-index {
+    font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: rgba(255,255,255,0.25); margin-bottom: 32px;
   }
-  .arc-pillar:hover::before { background: #C04A1A; }
-  .arc-pillar:hover { border-color: rgba(192,74,26,0.3); background: rgba(192,74,26,0.04); }
-  .arc-pillar--mid {
-    border-color: rgba(192,74,26,0.25);
-    background: rgba(192,74,26,0.05);
-  }
-  .arc-pillar--mid::before { background: #C04A1A; }
   .arc-pillar-letter {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 96px; line-height: 1;
+    font-size: 110px; line-height: 0.9;
     color: #C04A1A;
-    text-shadow: 0 0 40px rgba(192,74,26,0.35);
-    margin-bottom: 4px;
+    text-shadow: 0 0 60px rgba(192,74,26,0.3);
+    margin-bottom: 20px;
   }
   .arc-pillar-word {
-    font-size: 10px; letter-spacing: 0.4em;
-    text-transform: uppercase; color: rgba(255,255,255,0.35);
-    margin-bottom: 32px; font-weight: 500;
-  }
-  .arc-pillar-divider {
-    width: 32px; height: 1px;
-    background: rgba(192,74,26,0.5);
-    margin-bottom: 28px;
+    font-size: 22px; font-weight: 600; letter-spacing: -0.01em;
+    color: #ffffff; margin-bottom: 20px;
   }
   .arc-pillar-desc {
-    font-size: 14px; color: rgba(255,255,255,0.55);
-    line-height: 1.85; flex: 1; margin-bottom: 32px;
+    font-size: 14px; color: rgba(255,255,255,0.45);
+    line-height: 1.85; flex: 1;
   }
-  .arc-pillar-tags { display: flex; flex-wrap: wrap; gap: 8px; }
 
   /* DIFFERENCE SECTION */
   .diff-section { padding: 0 56px 120px; }
@@ -815,54 +799,36 @@
 <!-- THE SYSTEM -->
 <div class="system-section" id="process">
   <div class="system-inner">
-    <div class="sec-label">What ARC Stands For</div>
-    <div class="sec-title">Three pillars.<br><span class="serif">One system.</span></div>
+    <div style="display:flex; align-items:center; gap:16px; margin-bottom:24px;">
+      <div style="width:32px; height:1px; background:rgba(255,255,255,0.25);"></div>
+      <div style="font-size:10px; letter-spacing:0.4em; text-transform:uppercase; color:rgba(255,255,255,0.35);">THE PILLARS / ARC</div>
+    </div>
+    <div class="sec-title" style="margin-bottom:56px;">Three letters. <span class="serif">One system.</span></div>
 
     <div class="arc-pillars-grid">
 
       <!-- A -->
       <div class="arc-pillar">
+        <div class="arc-pillar-index">01 / PILLAR</div>
         <div class="arc-pillar-letter">A</div>
-        <div class="arc-pillar-word">ACQUIRE</div>
-        <div class="arc-pillar-divider"></div>
-        <div class="arc-pillar-desc">
-          We bring the right buyers to your store — not random traffic, but high-intent audiences built from real data. Meta &amp; TikTok paid media engineered to acquire customers profitably, at scale.
-        </div>
-        <div class="arc-pillar-tags">
-          <span class="sys-tag">Meta Ads</span>
-          <span class="sys-tag">TikTok Ads</span>
-          <span class="sys-tag">Audience Strategy</span>
-        </div>
+        <div class="arc-pillar-word">Acquire</div>
+        <div class="arc-pillar-desc">We bring the right buyers to your store — not random traffic, but high-intent audiences built from real data. Paid media engineered to acquire customers profitably, at scale.</div>
       </div>
 
       <!-- R -->
-      <div class="arc-pillar arc-pillar--mid">
+      <div class="arc-pillar">
+        <div class="arc-pillar-index">02 / PILLAR</div>
         <div class="arc-pillar-letter">R</div>
-        <div class="arc-pillar-word">REVENUE</div>
-        <div class="arc-pillar-divider"></div>
-        <div class="arc-pillar-desc">
-          Every campaign, every creative, every decision is made with one goal — maximum revenue. We track every dirham, optimise every funnel, and scale what works until the numbers speak for themselves.
-        </div>
-        <div class="arc-pillar-tags">
-          <span class="sys-tag">ROAS Optimisation</span>
-          <span class="sys-tag">Scaling</span>
-          <span class="sys-tag">AI Reports</span>
-        </div>
+        <div class="arc-pillar-word">Revenue</div>
+        <div class="arc-pillar-desc">Every campaign, every creative, every decision — made with one goal. We track every pound, optimise every funnel, and scale what works until the numbers speak for themselves.</div>
       </div>
 
       <!-- C -->
       <div class="arc-pillar">
+        <div class="arc-pillar-index">03 / PILLAR</div>
         <div class="arc-pillar-letter">C</div>
-        <div class="arc-pillar-word">CONVERT</div>
-        <div class="arc-pillar-divider"></div>
-        <div class="arc-pillar-desc">
-          Traffic means nothing without conversion. We build Shopify stores that are fast, CRO-optimised, and designed to turn visitors into buyers — from the first click to the checkout button.
-        </div>
-        <div class="arc-pillar-tags">
-          <span class="sys-tag">Shopify Dev</span>
-          <span class="sys-tag">CRO</span>
-          <span class="sys-tag">Speed Optimisation</span>
-        </div>
+        <div class="arc-pillar-word">Convert</div>
+        <div class="arc-pillar-desc">Traffic means nothing without conversion. We build Shopify stores that are fast, CRO-optimised, and designed to turn visitors into buyers from the first click.</div>
       </div>
 
     </div>
