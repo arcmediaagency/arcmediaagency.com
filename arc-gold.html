@@ -147,6 +147,51 @@
   .sys-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
   .sys-tag { font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; border: 1px solid var(--border); padding: 5px 14px; color: var(--muted); }
 
+  /* ARC PILLARS */
+  .arc-pillar {
+    padding: 56px 40px 48px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    display: flex; flex-direction: column;
+    transition: border-color 0.4s, background 0.4s;
+    position: relative; overflow: hidden;
+  }
+  .arc-pillar::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: transparent;
+    transition: background 0.4s;
+  }
+  .arc-pillar:hover::before { background: #C04A1A; }
+  .arc-pillar:hover { border-color: rgba(192,74,26,0.3); background: rgba(192,74,26,0.04); }
+  .arc-pillar--mid {
+    border-color: rgba(192,74,26,0.25);
+    background: rgba(192,74,26,0.05);
+  }
+  .arc-pillar--mid::before { background: #C04A1A; }
+  .arc-pillar-letter {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 96px; line-height: 1;
+    color: #C04A1A;
+    text-shadow: 0 0 40px rgba(192,74,26,0.35);
+    margin-bottom: 4px;
+  }
+  .arc-pillar-word {
+    font-size: 10px; letter-spacing: 0.4em;
+    text-transform: uppercase; color: rgba(255,255,255,0.35);
+    margin-bottom: 32px; font-weight: 500;
+  }
+  .arc-pillar-divider {
+    width: 32px; height: 1px;
+    background: rgba(192,74,26,0.5);
+    margin-bottom: 28px;
+  }
+  .arc-pillar-desc {
+    font-size: 14px; color: rgba(255,255,255,0.55);
+    line-height: 1.85; flex: 1; margin-bottom: 32px;
+  }
+  .arc-pillar-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
   /* DIFFERENCE SECTION */
   .diff-section { padding: 0 56px 120px; }
   .diff-inner { max-width: 1100px; margin: 0 auto; }
@@ -754,54 +799,56 @@
 <!-- THE SYSTEM -->
 <div class="system-section" id="process">
   <div class="system-inner">
-    <div class="sec-label">How It Works</div>
-    <div class="sec-title">One agency.<br><span class="serif">The full stack.</span></div>
-    <div class="system-steps">
-      <div class="sys-step">
-        <div class="sys-num">01</div>
-        <div>
-          <div class="sys-title">Store Built to Print Money.</div>
-          <div class="sys-sub">Shopify Development</div>
+    <div class="sec-label">What ARC Stands For</div>
+    <div class="sec-title">Three pillars.<br><span class="serif">One system.</span></div>
+
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:64px;">
+
+      <!-- A -->
+      <div class="arc-pillar">
+        <div class="arc-pillar-letter">A</div>
+        <div class="arc-pillar-word">ACQUIRE</div>
+        <div class="arc-pillar-divider"></div>
+        <div class="arc-pillar-desc">
+          We bring the right buyers to your store — not random traffic, but high-intent audiences built from real data. Meta &amp; TikTok paid media engineered to acquire customers profitably, at scale.
         </div>
-        <div>
-          <div class="sys-desc">We build Shopify stores engineered for one thing — conversion. Fast, mobile-first, CRO-optimised. Every pixel designed to turn visitors into buyers from day one.</div>
-          <div class="sys-tags">
-            <span class="sys-tag">Custom Design</span>
-            <span class="sys-tag">CRO</span>
-            <span class="sys-tag">Speed Optimization</span>
-            <span class="sys-tag">Mobile-First</span>
-          </div>
-        </div>
-      </div>
-      <div class="sys-step">
-        <div class="sys-num">02</div>
-        <div>
-          <div class="sys-title">Ads That Actually Scale.</div>
-          <div class="sys-sub">Media Buying</div>
-        </div>
-        <div>
-          <div class="sys-desc">We run paid media like engineers. Data-first, creative-tested, profit-obsessed. Every dollar tracked. Every campaign built to scale — not just spend.</div>
-          <div class="sys-tags">
-            <span class="sys-tag">Meta Ads</span>
-            <span class="sys-tag">TikTok Ads</span>
-          </div>
+        <div class="arc-pillar-tags">
+          <span class="sys-tag">Meta Ads</span>
+          <span class="sys-tag">TikTok Ads</span>
+          <span class="sys-tag">Audience Strategy</span>
         </div>
       </div>
-      <div class="sys-step">
-        <div class="sys-num">03</div>
-        <div>
-          <div class="sys-title">Full Clarity. Zero Excuses.</div>
-          <div class="sys-sub">ARC Intelligence · AI Reports</div>
+
+      <!-- R -->
+      <div class="arc-pillar arc-pillar--mid">
+        <div class="arc-pillar-letter">R</div>
+        <div class="arc-pillar-word">REVENUE</div>
+        <div class="arc-pillar-divider"></div>
+        <div class="arc-pillar-desc">
+          Every campaign, every creative, every decision is made with one goal — maximum revenue. We track every dirham, optimise every funnel, and scale what works until the numbers speak for themselves.
         </div>
-        <div>
-          <div class="sys-desc">Every week, an AI report lands in your inbox — ROAS, revenue, top creatives, what to scale, what to kill. No fluff. No hiding. Just the numbers that matter.</div>
-          <div class="sys-tags">
-            <span class="sys-tag">Weekly AI Reports</span>
-            <span class="sys-tag">AI Creatives</span>
-            <span class="sys-tag">Strategy Reports</span>
-          </div>
+        <div class="arc-pillar-tags">
+          <span class="sys-tag">ROAS Optimisation</span>
+          <span class="sys-tag">Scaling</span>
+          <span class="sys-tag">AI Reports</span>
         </div>
       </div>
+
+      <!-- C -->
+      <div class="arc-pillar">
+        <div class="arc-pillar-letter">C</div>
+        <div class="arc-pillar-word">CONVERT</div>
+        <div class="arc-pillar-divider"></div>
+        <div class="arc-pillar-desc">
+          Traffic means nothing without conversion. We build Shopify stores that are fast, CRO-optimised, and designed to turn visitors into buyers — from the first click to the checkout button.
+        </div>
+        <div class="arc-pillar-tags">
+          <span class="sys-tag">Shopify Dev</span>
+          <span class="sys-tag">CRO</span>
+          <span class="sys-tag">Speed Optimisation</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
