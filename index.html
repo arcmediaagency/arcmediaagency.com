@@ -238,29 +238,42 @@
 
   /* FOOTER */
   footer {
-    padding: 32px 56px;
-    border-top: 1px solid var(--border);
-    background: #080202;
+    background: #080808;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 72px 56px 0;
+  }
+  .foot-main {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 64px;
+  }
+  .foot-brand {}
+  .foot-arc { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: #ffffff; letter-spacing: 0.06em; line-height: 1; margin-bottom: 10px; }
+  .foot-tagline { font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 20px; }
+  .foot-desc { font-size: 13px; color: rgba(255,255,255,0.35); line-height: 1.8; max-width: 240px; }
+
+  .foot-col-title { font-size: 9px; letter-spacing: 0.4em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 24px; }
+  .foot-col-links { display: flex; flex-direction: column; gap: 14px; }
+  .foot-col-link {
+    font-size: 14px; color: rgba(255,255,255,0.6);
+    text-decoration: none; transition: color 0.2s;
+    background: none; border: none; cursor: pointer;
+    font-family: 'Inter', sans-serif; padding: 0; text-align: left;
+  }
+  .foot-col-link:hover { color: #ffffff; }
+  .foot-col-link.accent { color: var(--gold); }
+  .foot-col-link.accent:hover { color: #fff; }
+
+  .foot-bottom {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 24px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
-  .foot-logo { display: flex; align-items: center; gap: 4px; }
-  .foot-arc { font-family: 'Bebas Neue', sans-serif; font-size: 16px; color: rgba(255,255,255,0.3); letter-spacing: 0.08em; }
-  .foot-ag { font-size: 10px; font-weight: 300; color: rgba(255,255,255,0.15); padding-top: 2px; }
-  .foot-links { display: flex; flex-direction: column; align-items: center; gap: 10px; }
-  .foot-contact-label { font-size: 9px; letter-spacing: 0.45em; text-transform: uppercase; color: rgba(255,255,255,0.2); }
-  .foot-links-row { display: flex; align-items: center; gap: 28px; }
-  .foot-link {
-    font-size: 11px; font-weight: 400;
-    color: rgba(255,255,255,0.35); text-decoration: none;
-    letter-spacing: 0.04em;
-    transition: color 0.2s;
-  }
-  .foot-link:hover { color: #fff; }
-  .foot-link.apply-link { color: var(--gold); cursor: pointer; background: none; border: none; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 400; letter-spacing: 0.04em; padding: 0; }
-  .foot-link.apply-link:hover { color: #fff; }
-  .foot-copy { font-size: 11px; color: rgba(255,255,255,0.15); }
+  .foot-copy { font-size: 11px; color: rgba(255,255,255,0.18); letter-spacing: 0.08em; text-transform: uppercase; }
+  .foot-slogan { font-size: 11px; color: rgba(255,255,255,0.18); letter-spacing: 0.15em; text-transform: uppercase; }
 
   /* ── MOBILE ── */
   @media (max-width: 768px) {
@@ -312,10 +325,11 @@
     .cta-section { padding: 80px 20px; }
 
     /* FOOTER */
-    footer { padding: 24px 20px; flex-wrap: wrap; gap: 12px; }
-    .foot-links { align-items: flex-start; }
-    .foot-links-row { flex-direction: column; gap: 8px; }
-    .foot-copy { width: 100%; text-align: center; }
+    footer { padding: 48px 20px 0; }
+    .foot-main { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .foot-brand { grid-column: 1 / -1; }
+    .foot-bottom { flex-direction: column; gap: 8px; text-align: center; padding: 20px 0; }
+    .foot-desc { max-width: 100%; }
 
     /* MODAL */
     .modal-box { padding: 32px 24px; }
@@ -781,25 +795,59 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="foot-logo">
-    <div class="foot-arc">ARC</div>
-  </div>
-  <div class="foot-links">
-    <div class="foot-contact-label">Contact Us</div>
-    <div class="foot-links-row">
-      <a class="foot-link" href="mailto:info@arcmediaagency.com">info@arcmediaagency.com</a>
-      <a class="foot-link" href="https://instagram.com/arc.mediaagency" target="_blank" style="display:inline-flex; align-items:center; gap:6px;">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="1.8"/>
-          <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.8"/>
-          <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
-        </svg>
-        @arc.mediaagency
-      </a>
-      <button class="foot-link apply-link" onclick="openModal()">Apply now</button>
+  <div class="foot-main">
+
+    <!-- BRAND -->
+    <div class="foot-brand">
+      <div class="foot-arc">ARC.</div>
+      <div class="foot-tagline">Acquire · Revenue · Convert</div>
+      <div class="foot-desc">Media buying and ecom growth for brands across MENA and Europe. Built different.</div>
     </div>
+
+    <!-- SERVICES -->
+    <div>
+      <div class="foot-col-title">Services</div>
+      <div class="foot-col-links">
+        <span class="foot-col-link">Media Buying</span>
+        <span class="foot-col-link">Shopify Stores</span>
+        <span class="foot-col-link">ARC Intelligence</span>
+        <span class="foot-col-link">Email & SMS</span>
+      </div>
+    </div>
+
+    <!-- COMPANY -->
+    <div>
+      <div class="foot-col-title">Company</div>
+      <div class="foot-col-links">
+        <span class="foot-col-link">Results</span>
+        <span class="foot-col-link">Process</span>
+        <span class="foot-col-link">Who We Work With</span>
+        <button class="foot-col-link accent" onclick="openModal()">Apply Now</button>
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div>
+      <div class="foot-col-title">Contact</div>
+      <div class="foot-col-links">
+        <a class="foot-col-link" href="mailto:info@arcmediaagency.com">info@arcmediaagency.com</a>
+        <a class="foot-col-link" href="https://instagram.com/arc.mediaagency" target="_blank" style="display:inline-flex; align-items:center; gap:7px;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+            <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.8"/>
+            <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.8"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+          </svg>
+          @arc.mediaagency
+        </a>
+      </div>
+    </div>
+
   </div>
-  <div class="foot-copy">© 2026 ARC Agency</div>
+
+  <div class="foot-bottom">
+    <div class="foot-copy">© 2026 ARC Agency · All Rights Reserved</div>
+    <div class="foot-slogan">The Revenue Is In The Data.</div>
+  </div>
 </footer>
 
 <!-- APPLY MODAL -->
