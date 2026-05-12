@@ -427,6 +427,66 @@
     box-shadow: 0 8px 40px rgba(192,74,26,0.15);
   }
 
+  /* PAGE INTRO */
+  #page-intro {
+    position: fixed; inset: 0; z-index: 9998;
+    background: #000; display: flex; align-items: center; justify-content: center;
+    animation: introOut 0.6s ease 1.4s forwards;
+    pointer-events: none;
+  }
+  #page-intro-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 72px; letter-spacing: 0.12em; color: #C04A1A;
+    text-shadow: 0 0 40px rgba(192,74,26,0.8), 0 0 80px rgba(192,74,26,0.4);
+    animation: introPulse 1.2s ease forwards;
+  }
+  @keyframes introPulse {
+    0%   { opacity:0; transform: scale(0.85); }
+    50%  { opacity:1; transform: scale(1.05); }
+    100% { opacity:1; transform: scale(1); }
+  }
+  @keyframes introOut {
+    to { opacity:0; transform: scale(1.08); pointer-events:none; }
+  }
+
+  /* MARQUEE */
+  .arc-marquee-track {
+    display: flex; align-items: center; width: max-content;
+    animation: arcMarquee 28s linear infinite;
+  }
+  .arc-marquee-item {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px; letter-spacing: 0.3em; color: rgba(255,255,255,0.35);
+    padding: 0 28px; white-space: nowrap;
+    transition: color 0.3s;
+  }
+  .arc-marquee-item:hover { color: #C04A1A; }
+  .arc-marquee-dot {
+    color: #C04A1A; font-size: 16px; opacity: 0.6;
+  }
+  @keyframes arcMarquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* SYS STEP ENHANCED */
+  .sys-step {
+    position: relative;
+    transition: background 0.4s ease;
+  }
+  .sys-step::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 0; background: linear-gradient(90deg, rgba(192,74,26,0.08), transparent);
+    transition: width 0.5s ease;
+  }
+  .sys-step:hover::before { width: 100%; }
+  .sys-step:hover .sys-num {
+    color: rgba(192,74,26,0.7) !important;
+    text-shadow: 0 0 20px rgba(192,74,26,0.4);
+    transition: color 0.4s ease, text-shadow 0.4s ease;
+  }
+
   /* PARTICLES CANVAS */
   #hero-particles {
     position: absolute; inset: 0;
@@ -435,6 +495,9 @@
 </style>
 </head>
 <body>
+<!-- PAGE INTRO -->
+<div id="page-intro"><div id="page-intro-logo">ARC</div></div>
+
 
 <!-- NAV -->
 <nav>
@@ -686,6 +749,30 @@
         <div class="sov-card-desc">Every week you receive an AI-generated performance report — ROAS, revenue, top creatives, what to scale, what to cut. Full clarity, weekly.</div>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- MARQUEE STRIP -->
+<div style="overflow:hidden; padding:20px 0; background:#0a0a0a; border-top:1px solid rgba(192,74,26,0.15); border-bottom:1px solid rgba(192,74,26,0.15);">
+  <div class="arc-marquee-track">
+    <span class="arc-marquee-item">ACQUIRE</span><span class="arc-marquee-dot">·</span>
+    <span class="arc-marquee-item">REVENUE</span><span class="arc-marquee-dot">·</span>
+    <span class="arc-marquee-item">CONVERT</span><span class="arc-marquee-dot">·</span>
+    <span class="arc-marquee-item">PAID MEDIA</span><span class="arc-marquee-dot">·</span>
+    <span class="arc-marquee-item">META ADS</span><span class="arc-marquee-dot">·</span>
+    <span class="arc-marquee-item">TIKTOK ADS</span><span class="arc-marquee-dot">·</span>
+    <span class="arc-marquee-item">CRO</span><span class="arc-marquee-dot">·</span>
+    <span class="arc-marquee-item">SHOPIFY</span><span class="arc-marquee-dot">·</span>
+    <span class="arc-marquee-item">ROAS</span><span class="arc-marquee-dot">·</span>
+    <span class="arc-marquee-item">ACQUIRE</span><span class="arc-marquee-dot">·</span>
+    <span class="arc-marquee-item">REVENUE</span><span class="arc-marquee-dot">·</span>
+    <span class="arc-marquee-item">CONVERT</span><span class="arc-marquee-dot">·</span>
+    <span class="arc-marquee-item">PAID MEDIA</span><span class="arc-marquee-dot">·</span>
+    <span class="arc-marquee-item">META ADS</span><span class="arc-marquee-dot">·</span>
+    <span class="arc-marquee-item">TIKTOK ADS</span><span class="arc-marquee-dot">·</span>
+    <span class="arc-marquee-item">CRO</span><span class="arc-marquee-dot">·</span>
+    <span class="arc-marquee-item">SHOPIFY</span><span class="arc-marquee-dot">·</span>
+    <span class="arc-marquee-item">ROAS</span><span class="arc-marquee-dot">·</span>
   </div>
 </div>
 
