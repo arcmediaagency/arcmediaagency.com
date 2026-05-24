@@ -215,6 +215,21 @@
   .result-highlight-num { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: #ffffff; letter-spacing: 0.06em; line-height: 1; }
   .result-highlight-sub { font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 6px; letter-spacing: 0.12em; text-transform: uppercase; }
 
+  /* META ADS DASHBOARD */
+  .meta-summary { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; margin-bottom: 16px; }
+  .meta-stat { background: var(--card); border: 1px solid var(--border); padding: 28px 24px; text-align: left; }
+  .meta-stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: var(--gold); letter-spacing: 0.04em; line-height: 1; }
+  .meta-stat-num span { font-size: 22px; }
+  .meta-stat-label { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted); margin-top: 8px; }
+  .meta-table-wrap { overflow-x: auto; border: 1px solid var(--border); background: var(--card); }
+  .meta-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .meta-table th { font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted); padding: 14px 18px; text-align: left; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  .meta-table td { padding: 13px 18px; border-bottom: 1px solid rgba(192,74,26,0.07); color: rgba(255,255,255,0.75); white-space: nowrap; }
+  .meta-table tbody tr:hover td { background: rgba(192,74,26,0.04); color: #fff; }
+  .meta-table tr.meta-total td { color: var(--gold); font-weight: 600; border-top: 1px solid rgba(192,74,26,0.3); border-bottom: none; font-size: 13px; background: rgba(192,74,26,0.06); }
+  .meta-roas { color: #fff; font-weight: 600; }
+  .meta-roas-high { color: var(--gold); }
+
   /* BRANDS */
   .brands-section { padding: 0 0 120px; overflow: hidden; }
   .brands-inner { max-width: 1100px; margin: 0 auto; padding: 0 56px; text-align: center; }
@@ -648,15 +663,9 @@
     <!-- META ADS -->
     <div class="results-group">
       <div class="results-group-label">Meta Ads · Real Data</div>
-      <div class="results-grid-2" style="max-width:100%;">
-        <div class="result-card">
-          <img src="results/Screenshot%20%28447%29.png" alt="Meta Ads 8.14x ROAS">
-          <div class="result-highlight"><div class="result-highlight-num">8.14X ROAS</div><div class="result-highlight-sub">1,076 Purchases</div></div>
-        </div>
-        <div class="result-card">
-          <img src="results/Screenshot%20%28449%29.png" alt="Meta Ads 8.03x ROAS">
-          <div class="result-highlight"><div class="result-highlight-num">8.03X ROAS</div><div class="result-highlight-sub">1,127 Purchases</div></div>
-        </div>
+      <div class="result-card" style="width:100%;">
+        <img src="results/Screenshot%20%28759%29.png?v=2" alt="Meta Ads Dashboard" style="width:100%;height:auto;display:block;">
+        <div class="result-highlight"><div class="result-highlight-num">14.41X ROAS</div><div class="result-highlight-sub">1,210 Purchases · E£1.21M Revenue</div></div>
       </div>
     </div>
 
@@ -678,20 +687,6 @@
             <div class="result-highlight-sub">↑265% · 132 Orders</div>
           </div>
         </div>
-        <div class="result-card">
-          <img src="results/IMG_8436.PNG" alt="Shopify €107K 90 Days">
-          <div class="result-highlight">
-            <div class="result-highlight-num">€107K · 90 DAYS</div>
-            <div class="result-highlight-sub">↑73% · 896 Orders</div>
-          </div>
-        </div>
-        <div class="result-card">
-          <img src="results/IMG_8439.PNG" alt="Shopify €428K Q4">
-          <div class="result-highlight">
-            <div class="result-highlight-num">€428K · Q4 2025</div>
-            <div class="result-highlight-sub">↑477% · 3.04K Orders</div>
-          </div>
-        </div>
       </div>
     </div>
 
@@ -700,31 +695,31 @@
       <div class="results-group-label">Shopify · Egypt</div>
       <div class="results-grid-4">
         <div class="result-card">
-          <img src="results/IMG_6167.PNG" alt="Shopify E£64K Single Day">
+          <img src="results/IMG_9104.PNG" alt="Shopify E£79,856 Single Day">
           <div class="result-highlight">
-            <div class="result-highlight-num">E£64K · SINGLE DAY</div>
-            <div class="result-highlight-sub">↑104% · 41 Orders</div>
+            <div class="result-highlight-num">E£79,856 · SINGLE DAY</div>
+            <div class="result-highlight-sub">↑10% · 57 Orders</div>
           </div>
         </div>
         <div class="result-card">
-          <img src="results/IMG_8040.PNG" alt="Shopify E£255K 7 Days">
+          <img src="results/IMG_9135.PNG" alt="Shopify E£401,237 7 Days">
           <div class="result-highlight">
-            <div class="result-highlight-num">E£255K · 7 DAYS</div>
-            <div class="result-highlight-sub">↑1,900% · 298 Orders</div>
+            <div class="result-highlight-num">E£401,237 · 7 DAYS</div>
+            <div class="result-highlight-sub">↑8% · 369 Orders</div>
           </div>
         </div>
         <div class="result-card">
-          <img src="results/IMG_6441.PNG" alt="Shopify E£870K 30 Days">
+          <img src="results/IMG_9138.PNG" alt="Shopify E£1.025M This Month">
           <div class="result-highlight">
-            <div class="result-highlight-num">E£870K · 30 DAYS</div>
-            <div class="result-highlight-sub">↑233% · 700 Orders</div>
+            <div class="result-highlight-num">E£1M · 23 DAYS</div>
+            <div class="result-highlight-sub">↑258% · 978 Orders</div>
           </div>
         </div>
         <div class="result-card">
-          <img src="results/IMG_7682.PNG" alt="Shopify E£1.43M 90 Days">
+          <img src="results/IMG_9137.PNG" alt="Shopify E£1.211M 30 Days">
           <div class="result-highlight">
-            <div class="result-highlight-num">E£1.43M · 90 DAYS</div>
-            <div class="result-highlight-sub">↑238% · 1.08K Orders</div>
+            <div class="result-highlight-num">E£1.211M · 30 DAYS</div>
+            <div class="result-highlight-sub">↑837% · 1.19K Orders</div>
           </div>
         </div>
       </div>
@@ -752,7 +747,7 @@
         <div class="tr-desc">Brands Scaled</div>
       </div>
       <div class="tr-stat">
-        <div class="tr-num">8x</div>
+        <div class="tr-num">10x</div>
         <div class="tr-desc">Average ROAS</div>
       </div>
     </div>
