@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ARC Agency</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@200;300;400;500;600;700&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 <style>
@@ -24,6 +24,23 @@
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
   }
+
+  /* LANG TOGGLE */
+  .lang-toggle { display:flex; align-items:center; gap:6px; background:transparent; border:1px solid rgba(255,255,255,0.15); padding:7px 14px; cursor:pointer; font-size:10px; letter-spacing:0.18em; font-family:'Inter',sans-serif; color:rgba(255,255,255,0.5); transition:all 0.2s; }
+  .lang-toggle:hover { border-color:var(--gold); color:#fff; }
+  .lang-toggle .lang-active { color:var(--gold); font-weight:700; }
+  html[lang="ar"] body { font-family:'Cairo',sans-serif; direction:rtl; }
+  html[lang="ar"] .nav-links { flex-direction:row-reverse; }
+  html[lang="ar"] .hero-content { text-align:right; }
+  html[lang="ar"] h1 span { text-align:right; }
+  html[lang="ar"] .tr-title, html[lang="ar"] .tr-sub, html[lang="ar"] .tr-label { text-align:right; }
+  html[lang="ar"] .sec-title, html[lang="ar"] .sec-label, html[lang="ar"] .results-intro { text-align:right; }
+  html[lang="ar"] .sov-title, html[lang="ar"] .sov-sub, html[lang="ar"] .sov-label { text-align:right; }
+  html[lang="ar"] .diff-title, html[lang="ar"] .diff-desc { text-align:right; }
+  html[lang="ar"] .arc-pillar-desc, html[lang="ar"] .arc-pillar-word { text-align:right; }
+  html[lang="ar"] .notfor-item { flex-direction:row-reverse; }
+  html[lang="ar"] .notfor-text { text-align:right; }
+  html[lang="ar"] .results-group-label { flex-direction:row-reverse; }
 
   /* NAV */
   nav {
@@ -603,7 +620,10 @@
   <div class="nav-logo">
     <div class="nav-arc">ARC</div>
   </div>
-  <button class="nav-cta" onclick="openModal()">Apply Now →</button>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <button class="lang-toggle" onclick="toggleLang()" id="lang-btn"><span class="lang-active">EN</span> | AR</button>
+    <button class="nav-cta" onclick="openModal()" data-i18n="apply-btn">Apply Now →</button>
+  </div>
 </nav>
 
 
@@ -616,14 +636,14 @@
     <!-- Tag -->
     <div style="display:inline-flex; align-items:center; gap:10px; font-size:10px; letter-spacing:0.42em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:48px;">
       <span style="display:block; width:28px; height:1px; background:rgba(255,255,255,0.25);"></span>
-      Ecom Agency · MENA &amp; Global
+      <span data-i18n="hero-tag">Ecom Agency · MENA &amp; Global</span>
     </div>
 
     <!-- Big stacked headline -->
     <h1 style="font-size:clamp(72px,13vw,172px); line-height:0.92; font-weight:700; letter-spacing:-0.035em; margin:0 0 48px;">
-      <span style="display:block; color:#ffffff;">Paid Ads.</span>
-      <span style="display:block; color:#ffffff;">Dominate.</span>
-      <span style="display:block; color:#C04A1A; font-style:italic; font-weight:700; text-shadow:0 0 40px rgba(192,74,26,0.5);">Revenue.</span>
+      <span data-i18n="hero-line1" style="display:block; color:#ffffff;">Paid Ads.</span>
+      <span data-i18n="hero-line2" style="display:block; color:#ffffff;">Dominate.</span>
+      <span data-i18n="hero-line3" style="display:block; color:#C04A1A; font-style:italic; font-weight:700; text-shadow:0 0 40px rgba(192,74,26,0.5);">Revenue.</span>
     </h1>
 
     <!-- Divider -->
@@ -641,17 +661,17 @@
         </span>
       </div>
       <p style="font-size:15px; font-weight:400; color:rgba(255,255,255,0.42); line-height:1.85; margin:0;">
-        We scale ecommerce brands across Meta &amp; TikTok — with paid media, high-converting stores, and a full performance report every week.
+        <span data-i18n="hero-desc">We scale ecommerce brands across Meta &amp; TikTok — with paid media, high-converting stores, and a full performance report every week.</span>
       </p>
     </div>
 
     <!-- Buttons -->
     <div style="display:flex; gap:14px; align-items:center; flex-wrap:wrap;">
       <button onclick="openModal()" style="display:inline-flex; align-items:center; gap:10px; padding:16px 36px; background:#C04A1A; color:#ffffff; font-family:'Inter',sans-serif; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; font-weight:700; cursor:pointer; border:none; box-shadow:0 0 24px rgba(192,74,26,0.4);">
-        APPLY NOW &nbsp;→
+        <span data-i18n="apply-hero">APPLY NOW &nbsp;→</span>
       </button>
       <button onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})" style="display:inline-flex; align-items:center; gap:10px; padding:16px 36px; background:transparent; color:rgba(255,255,255,0.6); font-family:'Inter',sans-serif; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; font-weight:600; cursor:pointer; border:1px solid rgba(255,255,255,0.15);">
-        WHAT WE DO
+        <span data-i18n="what-we-do">WHAT WE DO</span>
       </button>
     </div>
 
@@ -661,8 +681,8 @@
 <!-- RESULTS -->
 <div class="results-section" id="results">
   <div class="results-inner">
-    <div class="sec-title">Empowering brands with <span class="serif">data-driven marketing.</span></div>
-    <div class="results-intro">Dedicated to crafting impactful strategies that connect with audiences, drive measurable results, and foster meaningful growth.</div>
+    <div class="sec-title" data-i18n="results-title">Empowering brands with <span class="serif">data-driven marketing.</span></div>
+    <div class="results-intro" data-i18n="results-intro">Dedicated to crafting impactful strategies that connect with audiences, drive measurable results, and foster meaningful growth.</div>
     <!-- META ADS -->
     <div class="results-group">
       <div class="results-group-label">Meta Ads · Real Data</div>
@@ -733,25 +753,25 @@
 <!-- TRACK RECORD -->
 <div class="trackrecord-section" id="track-record">
   <div class="tr-inner">
-    <div class="tr-label reveal">Our Track Record</div>
-    <div class="tr-title reveal">Trusted by brands.<br><span class="serif">Proven by numbers.</span></div>
-    <div class="tr-sub reveal">We've helped brands across Europe and the Middle East generate real revenue — with data, speed, and zero fluff.</div>
+    <div class="tr-label reveal" data-i18n="tr-label">Our Track Record</div>
+    <div class="tr-title reveal" data-i18n="tr-title">Trusted by brands.<br><span class="serif">Proven by numbers.</span></div>
+    <div class="tr-sub reveal" data-i18n="tr-sub">We've helped brands across Europe and the Middle East generate real revenue — with data, speed, and zero fluff.</div>
     <div class="tr-stats stagger">
       <div class="tr-stat">
         <div class="tr-num">$30M+</div>
-        <div class="tr-desc">Revenue Generated</div>
+        <div class="tr-desc" data-i18n="stat-revenue">Revenue Generated</div>
       </div>
       <div class="tr-stat">
         <div class="tr-num">100+</div>
-        <div class="tr-desc">Campaigns Managed</div>
+        <div class="tr-desc" data-i18n="stat-campaigns">Campaigns Managed</div>
       </div>
       <div class="tr-stat">
         <div class="tr-num">20+</div>
-        <div class="tr-desc">Brands Scaled</div>
+        <div class="tr-desc" data-i18n="stat-brands">Brands Scaled</div>
       </div>
       <div class="tr-stat">
         <div class="tr-num">10x</div>
-        <div class="tr-desc">Average ROAS</div>
+        <div class="tr-desc" data-i18n="stat-roas">Average ROAS</div>
       </div>
     </div>
   </div>
@@ -761,8 +781,8 @@
 <!-- BRANDS -->
 <div class="brands-section">
   <div class="brands-inner">
-    <div class="sec-label">Brands We Work With</div>
-    <div class="sec-title">Our <span class="serif">clients.</span></div>
+    <div class="sec-label" data-i18n="brands-label">Brands We Work With</div>
+    <div class="sec-title" data-i18n="brands-title">Our <span class="serif">clients.</span></div>
   </div>
   <div class="brands-marquee-wrap">
     <div class="brands-marquee">
@@ -800,31 +820,31 @@
 <!-- SERVICES OVERVIEW -->
 <div class="services-overview" id="services">
   <div class="services-overview-inner">
-    <div class="sov-label">What We Offer</div>
-    <div class="sov-title">All the tools you need to<br>grow your brand</div>
-    <div class="sov-sub">From strategy to analytics, we offer everything you need to boost engagement, drive conversions, and expand your brand's reach.</div>
+    <div class="sov-label" data-i18n="sov-label">What We Offer</div>
+    <div class="sov-title" data-i18n="sov-title">All the tools you need to<br>grow your brand</div>
+    <div class="sov-sub" data-i18n="sov-sub">From strategy to analytics, we offer everything you need to boost engagement, drive conversions, and expand your brand's reach.</div>
     <div class="sov-cards">
       <div class="sov-card">
         <div class="sov-icon">
           <img src="https://cdn.simpleicons.org/meta/white" alt="Meta">
           <img src="https://cdn.simpleicons.org/tiktok/white" alt="TikTok">
         </div>
-        <div class="sov-card-title">Meta & TikTok Ads</div>
-        <div class="sov-card-desc">Leverage paid media to reach a highly targeted audience with creative, data-driven campaigns that capture attention and drive conversions.</div>
+        <div class="sov-card-title" data-i18n="sov-card1-title">Meta & TikTok Ads</div>
+        <div class="sov-card-desc" data-i18n="sov-card1-desc">Leverage paid media to reach a highly targeted audience with creative, data-driven campaigns that capture attention and drive conversions.</div>
       </div>
       <div class="sov-card">
         <div class="sov-icon">
           <svg width="44" height="44" viewBox="0 0 24 24" fill="white" opacity="0.85"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
         </div>
-        <div class="sov-card-title">Email & SMS</div>
-        <div class="sov-card-desc">Reach your audience directly through personalized email and SMS campaigns that drive engagement, increase conversions, and nurture customer relationships.</div>
+        <div class="sov-card-title" data-i18n="sov-card2-title">Email & SMS</div>
+        <div class="sov-card-desc" data-i18n="sov-card2-desc">Reach your audience directly through personalized email and SMS campaigns that drive engagement, increase conversions, and nurture customer relationships.</div>
       </div>
       <div class="sov-card">
         <div class="sov-icon">
           <svg width="44" height="44" viewBox="0 0 24 24" fill="white" opacity="0.85"><path d="M12 1L9.5 8.5 2 12l7.5 3.5L12 23l2.5-7.5L22 12l-7.5-3.5L12 1zm0 3.5l1.5 4.5 4.5 1.5-4.5 1.5L12 16.5 10.5 12 6 10.5l4.5-1.5L12 4.5z"/></svg>
         </div>
-        <div class="sov-card-title">ARC Intelligence</div>
-        <div class="sov-card-desc">Every week you receive an AI-generated performance report — ROAS, revenue, top creatives, what to scale, what to cut. Full clarity, weekly.</div>
+        <div class="sov-card-title" data-i18n="sov-card3-title">ARC Intelligence</div>
+        <div class="sov-card-desc" data-i18n="sov-card3-desc">Every week you receive an AI-generated performance report — ROAS, revenue, top creatives, what to scale, what to cut. Full clarity, weekly.</div>
       </div>
     </div>
   </div>
@@ -836,9 +856,9 @@
   <div class="system-inner">
     <div style="display:flex; align-items:center; gap:16px; margin-bottom:24px;">
       <div style="width:32px; height:1px; background:rgba(255,255,255,0.25);"></div>
-      <div style="font-size:10px; letter-spacing:0.4em; text-transform:uppercase; color:rgba(255,255,255,0.35);">THE PILLARS / ARC</div>
+      <div style="font-size:10px; letter-spacing:0.4em; text-transform:uppercase; color:rgba(255,255,255,0.35);" data-i18n="pillars-label">THE PILLARS / ARC</div>
     </div>
-    <div class="sec-title" style="margin-bottom:56px;">Three letters. <span class="serif">One system.</span></div>
+    <div class="sec-title" style="margin-bottom:56px;" data-i18n="pillars-title">Three letters. <span class="serif">One system.</span></div>
 
     <div class="arc-pillars-grid">
 
@@ -846,24 +866,24 @@
       <div class="arc-pillar">
         <div class="arc-pillar-index">01 / PILLAR</div>
         <div class="arc-pillar-letter">A</div>
-        <div class="arc-pillar-word">Acquire</div>
-        <div class="arc-pillar-desc">We bring the right buyers to your store — not random traffic, but high-intent audiences built from real data. Paid media engineered to acquire customers profitably, at scale.</div>
+        <div class="arc-pillar-word" data-i18n="pillar-a-word">Acquire</div>
+        <div class="arc-pillar-desc" data-i18n="pillar-a-desc">We bring the right buyers to your store — not random traffic, but high-intent audiences built from real data. Paid media engineered to acquire customers profitably, at scale.</div>
       </div>
 
       <!-- R -->
       <div class="arc-pillar">
         <div class="arc-pillar-index">02 / PILLAR</div>
         <div class="arc-pillar-letter">R</div>
-        <div class="arc-pillar-word">Revenue</div>
-        <div class="arc-pillar-desc">Every campaign, every creative, every decision — made with one goal. We track every pound, optimise every funnel, and scale what works until the numbers speak for themselves.</div>
+        <div class="arc-pillar-word" data-i18n="pillar-r-word">Revenue</div>
+        <div class="arc-pillar-desc" data-i18n="pillar-r-desc">Every campaign, every creative, every decision — made with one goal. We track every pound, optimise every funnel, and scale what works until the numbers speak for themselves.</div>
       </div>
 
       <!-- C -->
       <div class="arc-pillar">
         <div class="arc-pillar-index">03 / PILLAR</div>
         <div class="arc-pillar-letter">C</div>
-        <div class="arc-pillar-word">Convert</div>
-        <div class="arc-pillar-desc">Traffic means nothing without conversion. We optimise every step of the funnel — from the first click to the final checkout — to turn visitors into buyers.</div>
+        <div class="arc-pillar-word" data-i18n="pillar-c-word">Convert</div>
+        <div class="arc-pillar-desc" data-i18n="pillar-c-desc">Traffic means nothing without conversion. We optimise every step of the funnel — from the first click to the final checkout — to turn visitors into buyers.</div>
       </div>
 
     </div>
@@ -873,28 +893,28 @@
 <!-- WHAT MAKES US DIFFERENT -->
 <div class="diff-section">
   <div class="diff-inner">
-    <div class="sec-label">The Difference</div>
-    <div class="sec-title">Why brands choose <span class="serif">ARC.</span></div>
+    <div class="sec-label" data-i18n="diff-label">The Difference</div>
+    <div class="sec-title" data-i18n="diff-title">Why brands choose <span class="serif">ARC.</span></div>
     <div class="diff-grid">
       <div class="diff-card highlight">
         <div class="diff-icon">🔗</div>
-        <div class="diff-title">Full Stack. One Team.</div>
-        <div class="diff-desc">No agency handoffs. No "the ads team doesn't talk to the website team" problem. One team handles everything — your store, your ads, your reports. Aligned on one goal.</div>
+        <div class="diff-title" data-i18n="diff1-title">Full Stack. One Team.</div>
+        <div class="diff-desc" data-i18n="diff1-desc">No agency handoffs. No "the ads team doesn't talk to the website team" problem. One team handles everything — your store, your ads, your reports. Aligned on one goal.</div>
       </div>
       <div class="diff-card highlight">
         <div class="diff-icon">📊</div>
-        <div class="diff-title">Weekly AI Reports. Not Monthly PDFs.</div>
-        <div class="diff-desc">While other agencies send you a report once a month, you get AI-generated insights every single week. You're never in the dark about where your budget is going.</div>
+        <div class="diff-title" data-i18n="diff2-title">Weekly AI Reports. Not Monthly PDFs.</div>
+        <div class="diff-desc" data-i18n="diff2-desc">While other agencies send you a report once a month, you get AI-generated insights every single week. You're never in the dark about where your budget is going.</div>
       </div>
       <div class="diff-card">
         <div class="diff-icon">🎯</div>
-        <div class="diff-title">Performance-Only Mindset.</div>
-        <div class="diff-desc">We don't charge retainers for "strategy calls" and "brand workshops." We're measured by ROAS, revenue, and growth. If you don't win, we don't win.</div>
+        <div class="diff-title" data-i18n="diff3-title">Performance-Only Mindset.</div>
+        <div class="diff-desc" data-i18n="diff3-desc">We don't charge retainers for "strategy calls" and "brand workshops." We're measured by ROAS, revenue, and growth. If you don't win, we don't win.</div>
       </div>
       <div class="diff-card">
         <div class="diff-icon">🌍</div>
-        <div class="diff-title">MENA-First. Built Global.</div>
-        <div class="diff-desc">Deep understanding of the Gulf and Egyptian market — buying behavior, seasonality, platform nuances. Combined with international best practices from scaling globally.</div>
+        <div class="diff-title" data-i18n="diff4-title">MENA-First. Built Global.</div>
+        <div class="diff-desc" data-i18n="diff4-desc">Deep understanding of the Gulf and Egyptian market — buying behavior, seasonality, platform nuances. Combined with international best practices from scaling globally.</div>
       </div>
     </div>
   </div>
@@ -904,34 +924,34 @@
 <div class="notfor-section" id="who-we-work-with">
   <div class="notfor-inner">
     <div>
-      <div class="sec-label">Honest Talk</div>
-      <div class="sec-title">We're not<br><span class="serif">for everyone.</span></div>
+      <div class="sec-label" data-i18n="notfor-label">Honest Talk</div>
+      <div class="sec-title" data-i18n="notfor-title">We're not<br><span class="serif">for everyone.</span></div>
     </div>
     <div>
       <div class="notfor-list">
         <div class="notfor-item">
           <div class="notfor-x">✕</div>
-          <div class="notfor-text">Brands looking for the <strong>cheapest option</strong></div>
+          <div class="notfor-text" data-i18n="notfor-x1">Brands looking for the <strong>cheapest option</strong></div>
         </div>
         <div class="notfor-item">
           <div class="notfor-x">✕</div>
-          <div class="notfor-text">Businesses with <strong>no existing product-market fit</strong></div>
+          <div class="notfor-text" data-i18n="notfor-x2">Businesses with <strong>no existing product-market fit</strong></div>
         </div>
         <div class="notfor-item">
           <div class="notfor-x">✕</div>
-          <div class="notfor-text">Anyone who wants <strong>vanity metrics</strong> over real revenue</div>
+          <div class="notfor-text" data-i18n="notfor-x3">Anyone who wants <strong>vanity metrics</strong> over real revenue</div>
         </div>
         <div class="notfor-item">
           <div class="notfor-check">✓</div>
-          <div class="notfor-text">Brands ready to <strong>invest and scale seriously</strong></div>
+          <div class="notfor-text" data-i18n="notfor-check1">Brands ready to <strong>invest and scale seriously</strong></div>
         </div>
         <div class="notfor-item">
           <div class="notfor-check">✓</div>
-          <div class="notfor-text">Founders who want <strong>full transparency</strong> on every dollar</div>
+          <div class="notfor-text" data-i18n="notfor-check2">Founders who want <strong>full transparency</strong> on every dollar</div>
         </div>
         <div class="notfor-item">
           <div class="notfor-check">✓</div>
-          <div class="notfor-text">Businesses with a <strong>product that people actually want</strong></div>
+          <div class="notfor-text" data-i18n="notfor-check3">Businesses with a <strong>product that people actually want</strong></div>
         </div>
       </div>
     </div>
@@ -1931,5 +1951,139 @@
 })();
 </script>
 
+<script>
+const translations = {
+  en: {
+    'apply-btn': 'Apply Now →',
+    'hero-tag': 'Ecom Agency · MENA &amp; Global',
+    'hero-line1': 'Paid Ads.',
+    'hero-line2': 'Dominate.',
+    'hero-line3': 'Revenue.',
+    'hero-desc': 'We scale ecommerce brands across Meta &amp; TikTok — with paid media, high-converting stores, and a full performance report every week.',
+    'apply-hero': 'APPLY NOW &nbsp;→',
+    'what-we-do': 'WHAT WE DO',
+    'results-title': 'Empowering brands with <span class="serif">data-driven marketing.</span>',
+    'results-intro': 'Dedicated to crafting impactful strategies that connect with audiences, drive measurable results, and foster meaningful growth.',
+    'tr-label': 'Our Track Record',
+    'tr-title': 'Trusted by brands.<br><span class="serif">Proven by numbers.</span>',
+    'tr-sub': 'We\'ve helped brands across Europe and the Middle East generate real revenue — with data, speed, and zero fluff.',
+    'stat-revenue': 'Revenue Generated',
+    'stat-campaigns': 'Campaigns Managed',
+    'stat-brands': 'Brands Scaled',
+    'stat-roas': 'Average ROAS',
+    'brands-label': 'Brands We Work With',
+    'brands-title': 'Our <span class="serif">clients.</span>',
+    'sov-label': 'What We Offer',
+    'sov-title': 'All the tools you need to<br>grow your brand',
+    'sov-sub': 'From strategy to analytics, we offer everything you need to boost engagement, drive conversions, and expand your brand\'s reach.',
+    'sov-card1-title': 'Meta & TikTok Ads',
+    'sov-card1-desc': 'Leverage paid media to reach a highly targeted audience with creative, data-driven campaigns that capture attention and drive conversions.',
+    'sov-card2-title': 'Email & SMS',
+    'sov-card2-desc': 'Reach your audience directly through personalized email and SMS campaigns that drive engagement, increase conversions, and nurture customer relationships.',
+    'sov-card3-title': 'ARC Intelligence',
+    'sov-card3-desc': 'Every week you receive an AI-generated performance report — ROAS, revenue, top creatives, what to scale, what to cut. Full clarity, weekly.',
+    'pillars-label': 'THE PILLARS / ARC',
+    'pillars-title': 'Three letters. <span class="serif">One system.</span>',
+    'pillar-a-word': 'Acquire',
+    'pillar-a-desc': 'We bring the right buyers to your store — not random traffic, but high-intent audiences built from real data. Paid media engineered to acquire customers profitably, at scale.',
+    'pillar-r-word': 'Revenue',
+    'pillar-r-desc': 'Every campaign, every creative, every decision — made with one goal. We track every pound, optimise every funnel, and scale what works until the numbers speak for themselves.',
+    'pillar-c-word': 'Convert',
+    'pillar-c-desc': 'Traffic means nothing without conversion. We optimise every step of the funnel — from the first click to the final checkout — to turn visitors into buyers.',
+    'diff-label': 'The Difference',
+    'diff-title': 'Why brands choose <span class="serif">ARC.</span>',
+    'diff1-title': 'Full Stack. One Team.',
+    'diff1-desc': 'No agency handoffs. No "the ads team doesn\'t talk to the website team" problem. One team handles everything — your store, your ads, your reports. Aligned on one goal.',
+    'diff2-title': 'Weekly AI Reports. Not Monthly PDFs.',
+    'diff2-desc': 'While other agencies send you a report once a month, you get AI-generated insights every single week. You\'re never in the dark about where your budget is going.',
+    'diff3-title': 'Performance-Only Mindset.',
+    'diff3-desc': 'We don\'t charge retainers for "strategy calls" and "brand workshops." We\'re measured by ROAS, revenue, and growth. If you don\'t win, we don\'t win.',
+    'diff4-title': 'MENA-First. Built Global.',
+    'diff4-desc': 'Deep understanding of the Gulf and Egyptian market — buying behavior, seasonality, platform nuances. Combined with international best practices from scaling globally.',
+    'notfor-label': 'Honest Talk',
+    'notfor-title': 'We\'re not<br><span class="serif">for everyone.</span>',
+    'notfor-x1': 'Brands looking for the <strong>cheapest option</strong>',
+    'notfor-x2': 'Businesses with <strong>no existing product-market fit</strong>',
+    'notfor-x3': 'Anyone who wants <strong>vanity metrics</strong> over real revenue',
+    'notfor-check1': 'Brands ready to <strong>invest and scale seriously</strong>',
+    'notfor-check2': 'Founders who want <strong>full transparency</strong> on every dollar',
+    'notfor-check3': 'Businesses with a <strong>product that people actually want</strong>',
+  },
+  ar: {
+    'apply-btn': 'تقدّم الآن ←',
+    'hero-tag': 'وكالة تجارة إلكترونية · الشرق الأوسط والعالم',
+    'hero-line1': 'إعلانات مدفوعة.',
+    'hero-line2': 'سيطر.',
+    'hero-line3': 'أرباح.',
+    'hero-desc': 'ننمّي علامات التجارة الإلكترونية عبر ميتا وتيك توك — بالإعلانات المدفوعة، والمتاجر عالية التحويل، وتقارير أداء كاملة كل أسبوع.',
+    'apply-hero': 'تقدّم الآن ←',
+    'what-we-do': 'ماذا نقدّم',
+    'results-title': 'نُمكّن العلامات التجارية بـ<span class="serif">تسويق قائم على البيانات.</span>',
+    'results-intro': 'ملتزمون بصياغة استراتيجيات مؤثرة تصل إلى الجمهور، وتحقق نتائج ملموسة، وتعزز النمو المستدام.',
+    'tr-label': 'سجلنا الحافل',
+    'tr-title': 'موثوق من العلامات التجارية.<br><span class="serif">مثبت بالأرقام.</span>',
+    'tr-sub': 'ساعدنا علامات تجارية في أوروبا والشرق الأوسط على تحقيق إيرادات حقيقية — بالبيانات والسرعة وبدون أي ثرثرة.',
+    'stat-revenue': 'إيرادات محققة',
+    'stat-campaigns': 'حملات مُدارة',
+    'stat-brands': 'علامات تجارية مُنمّاة',
+    'stat-roas': 'متوسط العائد على الإنفاق',
+    'brands-label': 'العلامات التي نعمل معها',
+    'brands-title': 'عملاؤنا <span class="serif">المميزون.</span>',
+    'sov-label': 'ما نقدمه',
+    'sov-title': 'كل ما تحتاجه<br>لتنمية علامتك التجارية',
+    'sov-sub': 'من الاستراتيجية إلى التحليلات، نقدم كل ما تحتاجه لتعزيز التفاعل وزيادة التحويلات وتوسيع نطاق علامتك التجارية.',
+    'sov-card1-title': 'إعلانات ميتا وتيك توك',
+    'sov-card1-desc': 'استخدم الإعلانات المدفوعة للوصول إلى جمهور مستهدف بدقة من خلال حملات إبداعية قائمة على البيانات تجذب الانتباه وتحقق التحويلات.',
+    'sov-card2-title': 'البريد الإلكتروني والرسائل النصية',
+    'sov-card2-desc': 'تواصل مع جمهورك مباشرةً عبر حملات بريد إلكتروني ورسائل نصية مخصصة تزيد التحويلات وتبني علاقات قوية مع العملاء.',
+    'sov-card3-title': 'ذكاء ARC',
+    'sov-card3-desc': 'كل أسبوع تحصل على تقرير أداء مولّد بالذكاء الاصطناعي — العائد، الإيرادات، أفضل الإعلانات، ما يجب توسيعه وما يجب إيقافه. وضوح تام أسبوعيًا.',
+    'pillars-label': 'الأعمدة / ARC',
+    'pillars-title': 'ثلاثة حروف. <span class="serif">منظومة واحدة.</span>',
+    'pillar-a-word': 'اكتسب',
+    'pillar-a-desc': 'نجلب المشترين المناسبين إلى متجرك — ليس زيارات عشوائية، بل جماهير عالية النية مبنية على بيانات حقيقية. إعلانات مدفوعة مصممة لاكتساب العملاء بربحية وعلى نطاق واسع.',
+    'pillar-r-word': 'إيرادات',
+    'pillar-r-desc': 'كل حملة، كل إعلان، كل قرار — بهدف واحد. نتابع كل جنيه، ونحسّن كل مسار، ونوسّع ما يحقق النتائج حتى تتكلم الأرقام عن نفسها.',
+    'pillar-c-word': 'حوّل',
+    'pillar-c-desc': 'الزيارات لا قيمة لها بدون تحويل. نحسّن كل خطوة في المسار — من الضغطة الأولى حتى إتمام الشراء — لتحويل الزوار إلى مشترين.',
+    'diff-label': 'الفارق',
+    'diff-title': 'لماذا تختار العلامات التجارية <span class="serif">ARC.</span>',
+    'diff1-title': 'كل شيء. فريق واحد.',
+    'diff1-desc': 'لا تسليمات بين الفرق. لا "فريق الإعلانات لا يتحدث مع فريق الموقع". فريق واحد يتولى كل شيء — متجرك، إعلاناتك، تقاريرك. متوافق على هدف واحد.',
+    'diff2-title': 'تقارير ذكاء اصطناعي أسبوعية. لا PDFs شهرية.',
+    'diff2-desc': 'بينما تُرسل الوكالات الأخرى تقريرًا مرة شهريًا، تحصل أنت على رؤى مولّدة بالذكاء الاصطناعي كل أسبوع. لن تكون في الظلام أبدًا بشأن ميزانيتك.',
+    'diff3-title': 'عقلية الأداء فقط.',
+    'diff3-desc': 'لا نفرض رسومًا ثابتة على "مكالمات الاستراتيجية". نُقاس بالعائد على الإنفاق والإيرادات والنمو. إذا لم تربح، لم نربح.',
+    'diff4-title': 'الشرق الأوسط أولًا. بُني للعالم.',
+    'diff4-desc': 'فهم عميق لسوق الخليج ومصر — سلوك الشراء، الموسمية، تفاصيل المنصات. مدمج مع أفضل الممارسات الدولية من التوسع على مستوى العالم.',
+    'notfor-label': 'كلام صريح',
+    'notfor-title': 'لسنا<br><span class="serif">للجميع.</span>',
+    'notfor-x1': 'العلامات الباحثة عن <strong>الأرخص</strong>',
+    'notfor-x2': 'أعمال <strong>بدون ملاءمة للسوق</strong>',
+    'notfor-x3': 'من يريد <strong>مقاييس وهمية</strong> بدل إيرادات حقيقية',
+    'notfor-check1': 'العلامات المستعدة لـ<strong>الاستثمار والنمو الجاد</strong>',
+    'notfor-check2': 'أصحاب يريدون <strong>شفافية كاملة</strong> على كل جنيه',
+    'notfor-check3': 'أعمال لديها <strong>منتج يريده الناس فعلاً</strong>',
+  }
+};
+
+let currentLang = 'en';
+
+function toggleLang() {
+  currentLang = currentLang === 'en' ? 'ar' : 'en';
+  const html = document.documentElement;
+  html.setAttribute('lang', currentLang);
+  const btn = document.getElementById('lang-btn');
+  btn.innerHTML = currentLang === 'ar'
+    ? '<span class="lang-active">AR</span> | EN'
+    : '<span class="lang-active">EN</span> | AR';
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[currentLang][key]) {
+      el.innerHTML = translations[currentLang][key];
+    }
+  });
+}
+</script>
 </body>
 </html>
