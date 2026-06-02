@@ -962,10 +962,10 @@
 
 <!-- CTA -->
 <div class="cta-section">
-  <div class="cta-title">Ready to<br><span class="serif">scale?</span></div>
-  <div class="cta-sub">Book a free 30-minute strategy call.<br>No pitch. No pressure. Just clarity on what's possible.</div>
-  <button class="btn-primary" onclick="openModal()">Apply Now →</button>
-  <div class="cta-note">Currently accepting new clients · Limited spots available</div>
+  <div class="cta-title" data-i18n="cta-title">Ready to<br><span class="serif">scale?</span></div>
+  <div class="cta-sub" data-i18n="cta-sub">Book a free 30-minute strategy call.<br>No pitch. No pressure. Just clarity on what's possible.</div>
+  <button class="btn-primary" onclick="openModal()" data-i18n="cta-btn">Apply Now →</button>
+  <div class="cta-note" data-i18n="cta-note">Currently accepting new clients · Limited spots available</div>
 </div>
 
 <!-- FOOTER -->
@@ -975,34 +975,34 @@
     <!-- BRAND -->
     <div class="foot-brand">
       <div class="foot-arc">ARC</div>
-      <div class="foot-tagline">Acquire · Revenue · Convert</div>
-      <div class="foot-desc">Media buying and ecom growth for brands across MENA and Europe. Built different.</div>
+      <div class="foot-tagline" data-i18n="foot-tagline">Acquire · Revenue · Convert</div>
+      <div class="foot-desc" data-i18n="foot-desc">Media buying and ecom growth for brands across MENA and Europe. Built different.</div>
     </div>
 
     <!-- SERVICES -->
     <div>
-      <div class="foot-col-title">Services</div>
+      <div class="foot-col-title" data-i18n="foot-services">Services</div>
       <div class="foot-col-links">
-        <a class="foot-col-link" href="#services">Media Buying</a>
+        <a class="foot-col-link" href="#services" data-i18n="foot-media-buying">Media Buying</a>
         <a class="foot-col-link" href="#services">ARC Intelligence</a>
-        <a class="foot-col-link" href="#services">Email & SMS</a>
+        <a class="foot-col-link" href="#services" data-i18n="foot-email-sms">Email & SMS</a>
       </div>
     </div>
 
     <!-- COMPANY -->
     <div>
-      <div class="foot-col-title">Company</div>
+      <div class="foot-col-title" data-i18n="foot-company">Company</div>
       <div class="foot-col-links">
-        <a class="foot-col-link" href="#results">Results</a>
-        <a class="foot-col-link" href="#process">Process</a>
-        <a class="foot-col-link" href="#who-we-work-with">Who We Work With</a>
-        <button class="foot-col-link accent" onclick="openModal()">Apply Now</button>
+        <a class="foot-col-link" href="#results" data-i18n="foot-results">Results</a>
+        <a class="foot-col-link" href="#process" data-i18n="foot-process">Process</a>
+        <a class="foot-col-link" href="#who-we-work-with" data-i18n="foot-who">Who We Work With</a>
+        <button class="foot-col-link accent" onclick="openModal()" data-i18n="foot-apply">Apply Now</button>
       </div>
     </div>
 
     <!-- CONTACT -->
     <div>
-      <div class="foot-col-title">Contact</div>
+      <div class="foot-col-title" data-i18n="foot-contact">Contact</div>
       <div class="foot-col-links">
         <a class="foot-col-link" href="mailto:info@arcmediaagency.com">info@arcmediaagency.com</a>
         <a class="foot-col-link" href="https://instagram.com/arc.mediaagency" target="_blank" style="display:inline-flex; align-items:center; gap:7px;">
@@ -1013,15 +1013,15 @@
           </svg>
           @arc.mediaagency
         </a>
-        <button class="foot-col-link accent" onclick="Calendly.initPopupWidget({url:'https://calendly.com/arcmediaagency-info/strategy-call'});return false;">Book a Strategy Call</button>
+        <button class="foot-col-link accent" onclick="Calendly.initPopupWidget({url:'https://calendly.com/arcmediaagency-info/strategy-call'});return false;" data-i18n="foot-book">Book a Strategy Call</button>
       </div>
     </div>
 
   </div>
 
   <div class="foot-bottom">
-    <div class="foot-copy">© 2026 ARC Agency · All Rights Reserved</div>
-    <div class="foot-slogan">The Revenue Is In The Data.</div>
+    <div class="foot-copy" data-i18n="foot-copy">© 2026 ARC Agency · All Rights Reserved</div>
+    <div class="foot-slogan" data-i18n="foot-slogan">The Revenue Is In The Data.</div>
   </div>
 </footer>
 
@@ -2014,6 +2014,24 @@ const translations = {
     'label-meta': 'Meta Ads · Real Data',
     'label-euro': 'Shopify · Euro Stores',
     'label-egypt': 'Shopify · Egypt',
+    'cta-title': 'Ready to<br><span class="serif">scale?</span>',
+    'cta-sub': 'Book a free 30-minute strategy call.<br>No pitch. No pressure. Just clarity on what\'s possible.',
+    'cta-btn': 'Apply Now →',
+    'cta-note': 'Currently accepting new clients · Limited spots available',
+    'foot-tagline': 'Acquire · Revenue · Convert',
+    'foot-desc': 'Media buying and ecom growth for brands across MENA and Europe. Built different.',
+    'foot-services': 'Services',
+    'foot-media-buying': 'Media Buying',
+    'foot-email-sms': 'Email & SMS',
+    'foot-company': 'Company',
+    'foot-results': 'Results',
+    'foot-process': 'Process',
+    'foot-who': 'Who We Work With',
+    'foot-apply': 'Apply Now',
+    'foot-contact': 'Contact',
+    'foot-book': 'Book a Strategy Call',
+    'foot-copy': '© 2026 ARC Agency · All Rights Reserved',
+    'foot-slogan': 'The Revenue Is In The Data.',
   },
   ar: {
     'apply-btn': 'تقدّم الآن ←',
@@ -2074,6 +2092,24 @@ const translations = {
     'label-meta': 'إعلانات ميتا · بيانات حقيقية',
     'label-euro': 'شوبيفاي · المتاجر الأوروبية',
     'label-egypt': 'شوبيفاي · مصر',
+    'cta-title': 'مستعد للـ<br><span class="serif">انطلاق؟</span>',
+    'cta-sub': 'احجز مكالمة استراتيجية مجانية لمدة 30 دقيقة.<br>بدون عروض. بدون ضغط. فقط وضوح حول ما هو ممكن.',
+    'cta-btn': 'تقدّم الآن ←',
+    'cta-note': 'نقبل عملاء جدد حالياً · أماكن محدودة',
+    'foot-tagline': 'اكتسب · إيرادات · حوّل',
+    'foot-desc': 'شراء إعلانات ونمو تجارة إلكترونية للعلامات التجارية في منطقة الشرق الأوسط وأوروبا. بناء مختلف.',
+    'foot-services': 'الخدمات',
+    'foot-media-buying': 'شراء الإعلانات',
+    'foot-email-sms': 'البريد والرسائل النصية',
+    'foot-company': 'الشركة',
+    'foot-results': 'النتائج',
+    'foot-process': 'المنهجية',
+    'foot-who': 'من نعمل معه',
+    'foot-apply': 'تقدّم الآن',
+    'foot-contact': 'تواصل معنا',
+    'foot-book': 'احجز مكالمة استراتيجية',
+    'foot-copy': '© 2026 ARC Agency · جميع الحقوق محفوظة',
+    'foot-slogan': 'الإيرادات في البيانات.',
   }
 };
 
