@@ -41,6 +41,8 @@
   html[lang="ar"] .notfor-item { flex-direction:row-reverse; }
   html[lang="ar"] .notfor-text { text-align:right; }
   html[lang="ar"] .results-group-label { flex-direction:row-reverse; }
+  html[lang="ar"] .tr-num { direction:ltr; }
+  html[lang="ar"] .result-highlight-num, html[lang="ar"] .result-highlight-sub { direction:ltr; }
 
   /* NAV */
   nav {
@@ -621,7 +623,7 @@
     <div class="nav-arc">ARC</div>
   </div>
   <div style="display:flex;align-items:center;gap:12px;">
-    <button class="lang-toggle" onclick="toggleLang()" id="lang-btn"><span class="lang-active">EN</span> | AR</button>
+    <button class="lang-toggle" onclick="toggleLang()" id="lang-btn" dir="ltr"><span class="lang-active">EN</span> | AR</button>
     <button class="nav-cta" onclick="openModal()" data-i18n="apply-btn">Apply Now →</button>
   </div>
 </nav>
@@ -653,11 +655,11 @@
     <div style="margin-bottom:48px; max-width:580px;">
       <div style="display:flex; align-items:center; gap:0; margin-bottom:28px;">
         <span style="font-size:clamp(18px,2.2vw,26px); font-weight:700; letter-spacing:0.01em; color:#ffffff;">
-          <span style="color:#C04A1A;">A</span>cquire
+          <span data-i18n="arc-text"><span style="color:#C04A1A;">A</span>cquire
           <span style="color:rgba(255,255,255,0.2); margin:0 14px;">·</span>
           <span style="color:#C04A1A;">R</span>evenue
           <span style="color:rgba(255,255,255,0.2); margin:0 14px;">·</span>
-          <span style="color:#C04A1A;">C</span>onvert
+          <span style="color:#C04A1A;">C</span>onvert</span>
         </span>
       </div>
       <p style="font-size:15px; font-weight:400; color:rgba(255,255,255,0.42); line-height:1.85; margin:0;">
@@ -685,7 +687,7 @@
     <div class="results-intro" data-i18n="results-intro">Dedicated to crafting impactful strategies that connect with audiences, drive measurable results, and foster meaningful growth.</div>
     <!-- META ADS -->
     <div class="results-group">
-      <div class="results-group-label">Meta Ads · Real Data</div>
+      <div class="results-group-label" data-i18n="label-meta">Meta Ads · Real Data</div>
       <div class="result-card" style="width:100%;">
         <img src="results/Screenshot%20%28759%29.png?v=2" alt="Meta Ads Dashboard" style="width:100%;height:auto;display:block;">
         <div class="result-highlight"><div class="result-highlight-num">14.41X ROAS</div><div class="result-highlight-sub">1,210 Purchases · E£1.21M Revenue</div></div>
@@ -694,7 +696,7 @@
 
     <!-- SHOPIFY EURO -->
     <div class="results-group">
-      <div class="results-group-label">Shopify · Euro Stores</div>
+      <div class="results-group-label" data-i18n="label-euro">Shopify · Euro Stores</div>
       <div class="results-grid-2" style="max-width:100%;">
         <div class="result-card">
           <img src="results/IMG_8558.PNG" alt="Shopify €4,069 Today">
@@ -715,7 +717,7 @@
 
     <!-- SHOPIFY EGP -->
     <div class="results-group">
-      <div class="results-group-label">Shopify · Egypt</div>
+      <div class="results-group-label" data-i18n="label-egypt">Shopify · Egypt</div>
       <div class="results-grid-4 egypt-grid">
         <div class="result-card">
           <img src="results/IMG_9104.PNG" alt="Shopify E£79,856 Single Day">
@@ -2008,6 +2010,10 @@ const translations = {
     'notfor-check1': 'Brands ready to <strong>invest and scale seriously</strong>',
     'notfor-check2': 'Founders who want <strong>full transparency</strong> on every dollar',
     'notfor-check3': 'Businesses with a <strong>product that people actually want</strong>',
+    'arc-text': '<span style="color:#C04A1A;">A</span>cquire <span style="color:rgba(255,255,255,0.2);margin:0 14px;">·</span> <span style="color:#C04A1A;">R</span>evenue <span style="color:rgba(255,255,255,0.2);margin:0 14px;">·</span> <span style="color:#C04A1A;">C</span>onvert',
+    'label-meta': 'Meta Ads · Real Data',
+    'label-euro': 'Shopify · Euro Stores',
+    'label-egypt': 'Shopify · Egypt',
   },
   ar: {
     'apply-btn': 'تقدّم الآن ←',
@@ -2064,6 +2070,10 @@ const translations = {
     'notfor-check1': 'العلامات المستعدة لـ<strong>الاستثمار والنمو الجاد</strong>',
     'notfor-check2': 'أصحاب يريدون <strong>شفافية كاملة</strong> على كل جنيه',
     'notfor-check3': 'أعمال لديها <strong>منتج يريده الناس فعلاً</strong>',
+    'arc-text': 'اكتسب <span style="color:rgba(255,255,255,0.2);margin:0 14px;">·</span> إيرادات <span style="color:rgba(255,255,255,0.2);margin:0 14px;">·</span> حوّل',
+    'label-meta': 'إعلانات ميتا · بيانات حقيقية',
+    'label-euro': 'شوبيفاي · المتاجر الأوروبية',
+    'label-egypt': 'شوبيفاي · مصر',
   }
 };
 
@@ -2075,7 +2085,7 @@ function toggleLang() {
   html.setAttribute('lang', currentLang);
   const btn = document.getElementById('lang-btn');
   btn.innerHTML = currentLang === 'ar'
-    ? '<span class="lang-active">AR</span> | EN'
+    ? 'EN | <span class="lang-active">AR</span>'
     : '<span class="lang-active">EN</span> | AR';
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
