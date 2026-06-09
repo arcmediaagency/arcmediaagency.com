@@ -254,6 +254,18 @@
   /* EGYPT GRID */
   .egypt-grid .result-card img { width: 100%; height: auto; display: block; }
 
+  /* META METRICS BAR */
+  .meta-metrics-bar { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; margin-bottom: 2px; }
+  .meta-metric-card { background: #0d0d0d; border: 1px solid rgba(201,168,76,0.2); padding: 26px 24px; position: relative; overflow: hidden; transition: border-color 0.2s, background 0.2s; }
+  .meta-metric-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background: linear-gradient(90deg, var(--gold), rgba(201,168,76,0.2)); }
+  .meta-metric-card:hover { background: #111; border-color: rgba(201,168,76,0.45); }
+  .meta-metric-num { font-family:'Bebas Neue',sans-serif; font-size:38px; color:var(--gold); letter-spacing:0.04em; line-height:1; }
+  .meta-metric-label { font-size:9px; letter-spacing:0.25em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-top:8px; }
+  .meta-metric-badge { display:inline-block; margin-top:10px; font-size:9px; letter-spacing:0.1em; color:#4ade80; background:rgba(74,222,128,0.07); border:1px solid rgba(74,222,128,0.15); padding:2px 8px; }
+  .meta-metric-card:nth-child(3) .meta-metric-badge,
+  .meta-metric-card:nth-child(4) .meta-metric-badge { color:#4ade80; }
+  @media(max-width:768px){ .meta-metrics-bar { grid-template-columns:repeat(2,1fr); } }
+
   /* META ADS DASHBOARD */
   .meta-dashboard { border: 1px solid var(--border); background: #0d0d0d; border-radius: 2px; overflow: hidden; box-shadow: 0 24px 80px rgba(0,0,0,0.5); }
   .meta-topbar { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; border-bottom: 1px solid var(--border); background: #111; }
@@ -724,6 +736,30 @@
     <!-- META ADS -->
     <div class="results-group">
       <div class="results-group-label" data-i18n="label-meta">Meta Ads · Real Data</div>
+      <!-- Key Metrics Bar -->
+      <div class="meta-metrics-bar">
+        <div class="meta-metric-card">
+          <div class="meta-metric-num">18.64x</div>
+          <div class="meta-metric-label">Avg ROAS</div>
+          <div class="meta-metric-badge">↑ Best</div>
+        </div>
+        <div class="meta-metric-card">
+          <div class="meta-metric-num">2,042</div>
+          <div class="meta-metric-label">Purchases</div>
+          <div class="meta-metric-badge">↑ Total</div>
+        </div>
+        <div class="meta-metric-card">
+          <div class="meta-metric-num">E£2.34M</div>
+          <div class="meta-metric-label">Revenue</div>
+          <div class="meta-metric-badge">↑ Generated</div>
+        </div>
+        <div class="meta-metric-card">
+          <div class="meta-metric-num">E£58.82</div>
+          <div class="meta-metric-label">Cost / Purchase</div>
+          <div class="meta-metric-badge">↓ Efficient</div>
+        </div>
+      </div>
+      <!-- Screenshot -->
       <div class="result-card" style="width:100%;">
         <img src="results/Screenshot%20%28759%29.png?v=3" alt="Meta Ads Dashboard" style="width:100%;height:auto;display:block;">
         <div class="result-highlight"><div class="result-highlight-num">18.64X ROAS</div><div class="result-highlight-sub">2,042 Purchases · E£2.34M Revenue</div></div>
