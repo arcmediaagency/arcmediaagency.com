@@ -255,19 +255,38 @@
   .egypt-grid .result-card img { width: 100%; height: auto; display: block; }
 
   /* META ADS DASHBOARD */
-  .meta-summary { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; margin-bottom: 16px; }
-  .meta-stat { background: var(--card); border: 1px solid var(--border); padding: 28px 24px; text-align: left; }
-  .meta-stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: var(--gold); letter-spacing: 0.04em; line-height: 1; }
-  .meta-stat-num span { font-size: 22px; }
-  .meta-stat-label { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted); margin-top: 8px; }
-  .meta-table-wrap { overflow-x: auto; border: 1px solid var(--border); background: var(--card); }
+  .meta-dashboard { border: 1px solid var(--border); background: #0d0d0d; border-radius: 2px; overflow: hidden; box-shadow: 0 24px 80px rgba(0,0,0,0.5); }
+  .meta-topbar { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; border-bottom: 1px solid var(--border); background: #111; }
+  .meta-topbar-left { display: flex; align-items: center; gap: 10px; }
+  .meta-topbar-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 8px rgba(201,168,76,0.6); }
+  .meta-topbar-label { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+  .meta-topbar-right { display: flex; align-items: center; gap: 8px; }
+  .meta-chip { font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.1); padding: 5px 10px; color: rgba(255,255,255,0.35); background: rgba(255,255,255,0.03); }
+  .meta-summary { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; margin-bottom: 0; background: var(--border); border-bottom: 1px solid var(--border); }
+  .meta-stat { background: #0d0d0d; padding: 28px 26px; text-align: left; position: relative; overflow: hidden; transition: background 0.2s; }
+  .meta-stat::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background: linear-gradient(90deg, var(--gold), transparent); opacity:0; transition: opacity 0.2s; }
+  .meta-stat:hover { background: #131313; }
+  .meta-stat:hover::before { opacity:1; }
+  .meta-stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 40px; color: #fff; letter-spacing: 0.04em; line-height: 1; }
+  .meta-stat-num .stat-unit { font-size: 20px; color: var(--gold); }
+  .meta-stat-label { font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-top: 10px; }
+  .meta-stat-badge { display: inline-block; margin-top: 8px; font-size: 9px; letter-spacing: 0.1em; color: #4ade80; background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.15); padding: 2px 7px; }
+  .meta-table-wrap { overflow-x: auto; }
   .meta-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  .meta-table th { font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted); padding: 14px 18px; text-align: left; border-bottom: 1px solid var(--border); white-space: nowrap; }
-  .meta-table td { padding: 13px 18px; border-bottom: 1px solid rgba(192,74,26,0.07); color: rgba(255,255,255,0.75); white-space: nowrap; }
-  .meta-table tbody tr:hover td { background: rgba(192,74,26,0.04); color: #fff; }
-  .meta-table tr.meta-total td { color: var(--gold); font-weight: 600; border-top: 1px solid rgba(192,74,26,0.3); border-bottom: none; font-size: 13px; background: rgba(192,74,26,0.06); }
-  .meta-roas { color: #fff; font-weight: 600; }
-  .meta-roas-high { color: var(--gold); }
+  .meta-table thead { background: #111; }
+  .meta-table th { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.3); padding: 14px 22px; text-align: right; border-bottom: 1px solid var(--border); white-space: nowrap; cursor: default; }
+  .meta-table th:first-child { text-align: left; }
+  .meta-table th .sort-icon { opacity: 0.3; margin-left: 4px; font-size: 8px; }
+  .meta-table td { padding: 15px 22px; border-bottom: 1px solid rgba(255,255,255,0.04); color: rgba(255,255,255,0.65); white-space: nowrap; font-size: 13px; text-align: right; font-variant-numeric: tabular-nums; transition: background 0.15s, color 0.15s; }
+  .meta-table td:first-child { text-align: left; color: rgba(255,255,255,0.45); font-size: 11px; letter-spacing: 0.05em; }
+  .meta-table tbody tr:nth-child(even) td { background: rgba(255,255,255,0.01); }
+  .meta-table tbody tr:hover td { background: rgba(201,168,76,0.05) !important; color: #fff; }
+  .meta-table tbody tr:hover td:first-child { color: rgba(255,255,255,0.6); }
+  .meta-table tfoot tr td { padding: 16px 22px; border-top: 1px solid rgba(201,168,76,0.25); border-bottom: none; background: rgba(201,168,76,0.04); color: var(--gold); font-weight: 700; font-size: 13px; text-align: right; }
+  .meta-table tfoot tr td:first-child { text-align: left; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(201,168,76,0.6); }
+  .meta-roas-pill { display: inline-block; padding: 3px 10px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); font-weight: 600; color: #fff; font-size: 12px; }
+  .meta-roas-pill.gold { background: rgba(201,168,76,0.12); border-color: rgba(201,168,76,0.35); color: var(--gold); }
+  @media (max-width: 768px) { .meta-summary { grid-template-columns: repeat(2,1fr); } .meta-topbar-right { display: none; } }
 
   /* BRANDS */
   .brands-section { padding: 0 0 120px; overflow: hidden; }
@@ -705,58 +724,77 @@
     <!-- META ADS -->
     <div class="results-group">
       <div class="results-group-label" data-i18n="label-meta">Meta Ads · Real Data</div>
-      <!-- Summary Stats -->
-      <div class="meta-summary">
-        <div class="meta-stat">
-          <div class="meta-stat-num">18.64<span>x</span></div>
-          <div class="meta-stat-label">Avg ROAS</div>
+      <div class="meta-dashboard">
+        <!-- Top Bar -->
+        <div class="meta-topbar">
+          <div class="meta-topbar-left">
+            <div class="meta-topbar-dot"></div>
+            <span class="meta-topbar-label">Meta Ads Manager · Live Data</span>
+          </div>
+          <div class="meta-topbar-right">
+            <span class="meta-chip">Columns: ARC</span>
+            <span class="meta-chip">Breakdown ↓</span>
+          </div>
         </div>
-        <div class="meta-stat">
-          <div class="meta-stat-num">2,042</div>
-          <div class="meta-stat-label">Total Purchases</div>
+        <!-- Summary Stats -->
+        <div class="meta-summary">
+          <div class="meta-stat">
+            <div class="meta-stat-num"><span class="stat-unit">18.64</span>x</div>
+            <div class="meta-stat-label">Avg ROAS</div>
+            <div class="meta-stat-badge">↑ Top Performer</div>
+          </div>
+          <div class="meta-stat">
+            <div class="meta-stat-num">2,042</div>
+            <div class="meta-stat-label">Total Purchases</div>
+            <div class="meta-stat-badge">↑ All Campaigns</div>
+          </div>
+          <div class="meta-stat">
+            <div class="meta-stat-num"><span class="stat-unit">E£</span>2.34M</div>
+            <div class="meta-stat-label">Total Revenue</div>
+            <div class="meta-stat-badge">↑ Purchase Value</div>
+          </div>
+          <div class="meta-stat">
+            <div class="meta-stat-num"><span class="stat-unit">E£</span>125K</div>
+            <div class="meta-stat-label">Total Ad Spend</div>
+            <div class="meta-stat-badge">↑ 7 Ad Sets</div>
+          </div>
         </div>
-        <div class="meta-stat">
-          <div class="meta-stat-num">E£<span>2.34M</span></div>
-          <div class="meta-stat-label">Revenue</div>
+        <!-- Data Table -->
+        <div class="meta-table-wrap">
+          <table class="meta-table">
+            <thead>
+              <tr>
+                <th>Campaign</th>
+                <th>Amount Spent <span class="sort-icon">↕</span></th>
+                <th>Purchases <span class="sort-icon">↕</span></th>
+                <th>ROAS <span class="sort-icon">↕</span></th>
+                <th>Revenue <span class="sort-icon">↕</span></th>
+                <th>Cost / Purchase <span class="sort-icon">↕</span></th>
+                <th>Checkouts <span class="sort-icon">↕</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Ad Set 01</td><td>E£1,991.82</td><td>35</td><td><span class="meta-roas-pill">15.91x</span></td><td>E£31,696.00</td><td>E£56.91</td><td>E£74,376.00</td></tr>
+              <tr><td>Ad Set 02</td><td>E£3,882.76</td><td>62</td><td><span class="meta-roas-pill gold">24.87x</span></td><td>E£96,563.90</td><td>E£62.63</td><td>E£153,519.90</td></tr>
+              <tr><td>Ad Set 03</td><td>E£16,958.58</td><td>288</td><td><span class="meta-roas-pill">16.61x</span></td><td>E£281,638.75</td><td>E£58.88</td><td>E£619,201.51</td></tr>
+              <tr><td>Ad Set 04</td><td>E£3,284.29</td><td>55</td><td><span class="meta-roas-pill">15.04x</span></td><td>E£49,400.90</td><td>E£59.71</td><td>E£97,248.90</td></tr>
+              <tr><td>Ad Set 05</td><td>E£396.61</td><td>4</td><td><span class="meta-roas-pill">11.00x</span></td><td>E£4,361.60</td><td>E£99.15</td><td>E£10,821.90</td></tr>
+              <tr><td>Ad Set 06</td><td>E£9,427.63</td><td>128</td><td><span class="meta-roas-pill">12.89x</span></td><td>E£121,540.00</td><td>E£73.65</td><td>E£227,296.54</td></tr>
+              <tr><td>Ad Set 07</td><td>E£396.03</td><td>2</td><td><span class="meta-roas-pill">3.86x</span></td><td>E£1,530.00</td><td>E£198.02</td><td>E£5,220.00</td></tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td>Total</td>
+                <td>E£125,585.03</td>
+                <td>2,042</td>
+                <td>18.64x Avg</td>
+                <td>E£2,340,904.50</td>
+                <td>E£58.82</td>
+                <td>E£3,910,064.39</td>
+              </tr>
+            </tfoot>
+          </table>
         </div>
-        <div class="meta-stat">
-          <div class="meta-stat-num">E£<span>125K</span></div>
-          <div class="meta-stat-label">Total Spent</div>
-        </div>
-      </div>
-      <!-- Data Table -->
-      <div class="meta-table-wrap">
-        <table class="meta-table">
-          <thead>
-            <tr>
-              <th>Amount Spent</th>
-              <th>Purchases</th>
-              <th>Purchase ROAS</th>
-              <th>Revenue</th>
-              <th>Cost / Purchase</th>
-              <th>Checkouts</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>E£1,991.82</td><td>35</td><td class="meta-roas">15.91x</td><td>E£31,696.00</td><td>E£56.91</td><td>E£74,376.00</td></tr>
-            <tr><td>E£3,882.76</td><td>62</td><td class="meta-roas meta-roas-high">24.87x</td><td>E£96,563.90</td><td>E£62.63</td><td>E£153,519.90</td></tr>
-            <tr><td>E£16,958.58</td><td>288</td><td class="meta-roas">16.61x</td><td>E£281,638.75</td><td>E£58.88</td><td>E£619,201.51</td></tr>
-            <tr><td>E£3,284.29</td><td>55</td><td class="meta-roas">15.04x</td><td>E£49,400.90</td><td>E£59.71</td><td>E£97,248.90</td></tr>
-            <tr><td>E£396.61</td><td>4</td><td class="meta-roas">11.00x</td><td>E£4,361.60</td><td>E£99.15</td><td>E£10,821.90</td></tr>
-            <tr><td>E£9,427.63</td><td>128</td><td class="meta-roas">12.89x</td><td>E£121,540.00</td><td>E£73.65</td><td>E£227,296.54</td></tr>
-            <tr><td>E£396.03</td><td>2</td><td class="meta-roas">3.86x</td><td>E£1,530.00</td><td>E£198.02</td><td>E£5,220.00</td></tr>
-          </tbody>
-          <tfoot>
-            <tr class="meta-total">
-              <td>E£125,585.03</td>
-              <td>2,042 Total</td>
-              <td>18.64x Avg</td>
-              <td>E£2,340,904.50</td>
-              <td>E£58.82</td>
-              <td>E£3,910,064.39</td>
-            </tr>
-          </tfoot>
-        </table>
       </div>
       <div class="result-highlight"><div class="result-highlight-num">18.64X ROAS</div><div class="result-highlight-sub">2,042 Purchases · E£2.34M Revenue</div></div>
     </div>
